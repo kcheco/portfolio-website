@@ -1,0 +1,13 @@
+<h1>Add a book you've read</h1>
+
+<%= form_for(@book_item) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :date_read, "Date Read" %>
+  <%= f.text_field :date_read %>
+
+  <%= f.submit "Add Book" %>
+
+<% end %>
