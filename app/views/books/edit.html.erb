@@ -1,0 +1,18 @@
+<h1>Edit Book</h1>
+
+<%= form_for(@book_item) do |f| %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :date_read, "Date Read" %>
+    <%= f.text_field :date_read %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Book" %>
+  </div>
+<% end %>

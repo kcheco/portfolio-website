@@ -11,9 +11,31 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book_item.save
-        format.html { redirect_to books_path, notice: "Book was successfully added."}
+        format.html { redirect_to edit_book_path(id: @book_item.id), 
+                      notice: "Book was successfully added." }
       else
         format.html { render :new }
+      end
+    end
+  end
+
+  # calls view to be rendered in order for user to edit
+  # the details of a book that has been read
+  def edit
+    @book_item = Book.find(params[:id])
+  end
+
+  # ingest valid book parameters and applies changes to existing
+  # book item
+  def update
+    @book_item = Book.find(params[:id])
+
+    respond_to do |format|
+      if @book_item.update(book_params)
+        format.html { redirect_to edit_book_path(id: @book_item.id), 
+                      notice: "Book was successfully updated." }
+      else
+        format.html { render :edit }
       end
     end
   end
