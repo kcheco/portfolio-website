@@ -2,12 +2,18 @@
 
 <%= form_for(@book_item) do |f| %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :date_read, "Date Read" %>
-  <%= f.text_field :date_read %>
+  <div>
+    <%= f.label :date_read, "Date Read" %>
+    <%= f.text_field :date_read %>
+  </div>
 
-  <%= f.submit "Add Book" %>
+  <div>
+    <%= f.submit "Add Book" %>
+  </div>
 
 <% end %>
