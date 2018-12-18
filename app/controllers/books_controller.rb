@@ -47,6 +47,18 @@ class BooksController < ApplicationController
     end
   end
 
+  # removes a book and redirects to books index page
+  def destroy
+    @book_item = Book.find(params[:id])
+
+    @book_item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to books_path, 
+                    notice: "Book was successfully deleted."  }
+    end
+  end
+
   private
   # specifies valid parameters that may be ingested by the book resource
   def book_params
