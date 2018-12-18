@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [ :edit, :update, :destroy ]
 
   # calls index view and displays a list of all books
   # that have been recorded as read
@@ -29,14 +30,11 @@ class BooksController < ApplicationController
   # calls view to be rendered in order for user to edit
   # the details of a book that has been read
   def edit
-    @book_item = Book.find(params[:id])
   end
 
   # ingest valid book parameters and applies changes to existing
   # book item
   def update
-    @book_item = Book.find(params[:id])
-
     respond_to do |format|
       if @book_item.update(book_params)
         format.html { redirect_to edit_book_path(id: @book_item.id), 
@@ -49,8 +47,6 @@ class BooksController < ApplicationController
 
   # removes a book and redirects to books index page
   def destroy
-    @book_item = Book.find(params[:id])
-
     @book_item.destroy
 
     respond_to do |format|
@@ -60,6 +56,11 @@ class BooksController < ApplicationController
   end
 
   private
+  # specifies an individual book based on id within parameters
+  def set_book
+    @book_item = Book.find(params[:id])
+  end
+
   # specifies valid parameters that may be ingested by the book resource
   def book_params
     params.require(:book)
