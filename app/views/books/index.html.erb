@@ -4,6 +4,7 @@
 
   <div>
     <%= book.title %>
+    <%= link_to "Make Changes", edit_book_path(book) %>
     <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?' } %>
   </div>
 
