@@ -1,4 +1,11 @@
 class BooksController < ApplicationController
+
+  # calls index view and displays a list of all books
+  # that have been recorded as read
+  def index
+    @books = Book.all
+  end
+
   # calls view to be rendered in order for user to add
   # a book that has been read
   def new
@@ -41,10 +48,10 @@ class BooksController < ApplicationController
   end
 
   private
-    # specifies valid parameters that may be ingested by the book resource
-    def book_params
-      params.require(:book)
-            .permit(:title,
-                    :date_read)
-    end
+  # specifies valid parameters that may be ingested by the book resource
+  def book_params
+    params.require(:book)
+          .permit(:title,
+                  :date_read)
+  end
 end
