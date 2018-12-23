@@ -1,0 +1,10 @@
+<h1>List of Youtube Videos I've watched</h1>
+
+<% @watched_videos.each do |video| %>
+
+  <div>
+    <%= video.title %>
+    <%= link_to "Make Changes", edit_watched_video_path(video) %>
+  </div>
+
+<% end %>

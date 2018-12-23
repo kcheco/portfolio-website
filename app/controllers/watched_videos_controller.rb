@@ -1,4 +1,9 @@
 class WatchedVideosController < ApplicationController
+  # calls index view and displays a list of all watched
+  # videos that have been recorded
+  def index
+    @watched_videos = WatchedVideo.all
+  end
 
   # calls view to be rendered for user to add a youtube 
   # video they've watched
@@ -26,13 +31,15 @@ class WatchedVideosController < ApplicationController
     @watched_video = WatchedVideo.find(params[:id])
   end
 
-  #
+  # ingests valid parametes and applies changes to exisiting watched
+  # video
   def update
     @watched_video = WatchedVideo.find(params[:id])
 
     respond_to do |format|
       if @watched_video.update(watched_video_params)
-        format.html { redirect_to edit_watched_video_path(@watched_video), notice: "Video was successfully updated." }
+        format.html { redirect_to edit_watched_video_path(@watched_video), 
+                      notice: "Video was successfully updated." }
       else
         format.html { render :edit }
       end
