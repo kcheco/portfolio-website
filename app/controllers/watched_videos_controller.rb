@@ -26,6 +26,19 @@ class WatchedVideosController < ApplicationController
     @watched_video = WatchedVideo.find(params[:id])
   end
 
+  #
+  def update
+    @watched_video = WatchedVideo.find(params[:id])
+
+    respond_to do |format|
+      if @watched_video.update(watched_video_params)
+        format.html { redirect_to edit_watched_video_path(@watched_video), notice: "Video was successfully updated." }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
   private
   # specifies valid parameters that may be ingested by the
   # watched video resource

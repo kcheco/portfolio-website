@@ -1,1 +1,24 @@
 <h1>Edit Watched Video</h2>
+
+<%= form_for(@watched_video) do |f| %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :date_viewed, "Date Viewed" %>
+    <%= f.text_field :date_viewed %>
+  </div>
+
+  <div>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+
+  <div>
+    <%= f.submit "Apply Changes" %>
+  </div>
+
+<% end %>
