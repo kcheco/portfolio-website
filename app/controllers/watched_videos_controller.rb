@@ -1,4 +1,6 @@
 class WatchedVideosController < ApplicationController
+  before_action :set_watched_video, only: [ :edit, :update, :destroy ]
+
   # calls index view and displays a list of all watched
   # videos that have been recorded
   def index
@@ -28,14 +30,11 @@ class WatchedVideosController < ApplicationController
   # calls view to be rendered for user to edit the details
   # of a watched video
   def edit
-    @watched_video = WatchedVideo.find(params[:id])
   end
 
   # ingests valid parametes and applies changes to exisiting watched
   # video
   def update
-    @watched_video = WatchedVideo.find(params[:id])
-
     respond_to do |format|
       if @watched_video.update(watched_video_params)
         format.html { redirect_to edit_watched_video_path(@watched_video), 
@@ -48,8 +47,6 @@ class WatchedVideosController < ApplicationController
 
   # removes a watched video from list
   def destroy
-    @watched_video = WatchedVideo.find(params[:id])
-
     @watched_video.destroy
 
     respond_to do |format|
@@ -59,6 +56,11 @@ class WatchedVideosController < ApplicationController
   end
 
   private
+  # identifies a specific video from id parameter in request
+  def set_watched_video
+    @watched_video = WatchedVideo.find(params[:id])
+  end
+
   # specifies valid parameters that may be ingested by the
   # watched video resource
   def watched_video_params
