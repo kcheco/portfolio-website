@@ -5,6 +5,7 @@
   <div>
     <%= video.title %>
     <%= link_to "Make Changes", edit_watched_video_path(video) %>
+    <%= link_to "Remove", watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' } %>
   </div>
 
 <% end %>

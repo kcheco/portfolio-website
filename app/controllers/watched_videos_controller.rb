@@ -46,6 +46,18 @@ class WatchedVideosController < ApplicationController
     end
   end
 
+  # removes a watched video from list
+  def destroy
+    @watched_video = WatchedVideo.find(params[:id])
+
+    @watched_video.destroy
+
+    respond_to do |format|
+      format.html { redirect_to watched_videos_path, 
+                    notice: "Video was successfully deleted."  }
+    end
+  end
+
   private
   # specifies valid parameters that may be ingested by the
   # watched video resource
