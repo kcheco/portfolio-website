@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   # calls view to display list of projects
   def index
+    @projects = Project.all
   end
 
   # calls view that allows user to add a new projects to list
