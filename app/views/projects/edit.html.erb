@@ -1,0 +1,24 @@
+<h1>Editing a project</h1>
+
+<%= form_for(@project) do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :date_completed, "Date Completed" %>
+    <%= f.text_field :date_completed %>
+  </div>
+
+  <div>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+
+  <div>
+    <%= f.submit "Apply Changes" %>
+  </div>
+
+<% end %>
