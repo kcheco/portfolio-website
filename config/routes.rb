@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :books, only: [ :new, :create, :show, :edit, :update, :index, :destroy ]
   resources :watched_videos, only: [ :new, :create, :edit, :update, :index, :destroy ]
-  resources :projects, only: [ :index, :new, :create, :edit ]
+  resources :projects, only: [ :index, :new, :create, :edit, :update ]
 end

@@ -26,6 +26,20 @@ class ProjectsController < ApplicationController
   # calls view that allows user to apply view/changes to a specific
   # project
   def edit
+    @project = Project.find(params[:id])
+  end
+
+  # ingests valid parameters when apply changes to a specific project
+  def update
+    @project = Project.find(params[:id])
+
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html { redirect_to edit_project_path(@project), notice: "Project was successfully updated." }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   private
