@@ -43,6 +43,17 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # removes the specific project form request
+  def destroy
+    @project = Project.find(params[:id])
+
+    @project.destroy
+
+    respond_to do |format|
+      format.html { redirect_to projects_path, notice: "Project was successfully deleted." }
+    end
+  end
+
   private
   # specifies valid parameters that may be ingested by the project resource
   def project_params
