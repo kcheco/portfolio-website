@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: [ :edit, :udpate, :destroy ]
+
   # calls view to display list of projects
   def index
     @projects = Project.all
@@ -27,13 +29,10 @@ class ProjectsController < ApplicationController
   # calls view that allows user to apply view/changes to a specific
   # project
   def edit
-    @project = Project.find(params[:id])
   end
 
   # ingests valid parameters when apply changes to a specific project
   def update
-    @project = Project.find(params[:id])
-
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to edit_project_path(@project), notice: "Project was successfully updated." }
@@ -45,8 +44,6 @@ class ProjectsController < ApplicationController
 
   # removes the specific project form request
   def destroy
-    @project = Project.find(params[:id])
-
     @project.destroy
 
     respond_to do |format|
@@ -55,6 +52,11 @@ class ProjectsController < ApplicationController
   end
 
   private
+  # identifies a specific project based on id param in request
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
   # specifies valid parameters that may be ingested by the project resource
   def project_params
     params.require(:project).permit(:name,
