@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 feature "Update a project" do
-  scenario "I am able to successfully apply changes" do
+  background do
     given_i_have_a_project_i_want_to_update
+  end
+
+  scenario "I am able to successfully apply changes" do
     when_i_visit_the_edit_page
     and_i_change_the_project_name
     and_i_change_the_link

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [ :edit, :udpate, :destroy ]
+  before_action :set_project, only: [ :edit, :update, :destroy ]
 
   # calls view to display list of projects
   def index
