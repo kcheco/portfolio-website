@@ -10,7 +10,7 @@ RSpec.feature "Deleting a book from list of books read", :type => :feature do
 
   private
   def given_i_have_a_book_i_no_longer_want_on_my_list
-    @book = FactoryBot.create(:book)
+    @book = FactoryBot.create(:book, :with_cover)
     visit '/books'
   end
 

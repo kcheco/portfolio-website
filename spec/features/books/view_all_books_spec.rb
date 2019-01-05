@@ -9,7 +9,7 @@ RSpec.feature "Viewing a list of books", :type => :feature do
 
   private
   def given_i_have_a_list_of_books_i_have_read
-    @books = FactoryBot.create_list(:book, 5)
+    @books = FactoryBot.create_list(:book, 5, :with_cover)
   end
 
   def when_i_visit_the_books_page

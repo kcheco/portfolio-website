@@ -12,7 +12,7 @@ RSpec.feature "Update a book", type: :feature do
 
   private
   def given_i_have_to_edit_the_title_of_a_book
-    @book = FactoryBot.create(:book)
+    @book = FactoryBot.create(:book, :with_cover)
   end
 
   def and_i_see_the_book_i_have_to_edit
