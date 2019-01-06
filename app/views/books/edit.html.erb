@@ -12,6 +12,12 @@
     <%= f.text_field :date_read %>
   </div>
 
+  <% if @book_item.has_image? %>
+    <div>
+      <%= image_tag "#{@book_item.image.source}" %>
+    </div>
+  <% end %>
+
   <div>
     <%= f.submit "Update Book" %>
   </div>

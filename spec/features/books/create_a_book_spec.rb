@@ -8,6 +8,7 @@ feature "Creating a book" do
     and_i_set_the_cover_of_the_book
     and_i_click_the_create_button
     then_i_should_see_the_book_was_added_successfully
+    and_i_should_see_the_cover_of_the_book
   end
 
   scenario "always needs a cover" do
@@ -46,5 +47,9 @@ feature "Creating a book" do
 
   def then_i_should_receive_an_error_for_not_setting_a_cover
     expect(page).to have_content("Hey, quit being lazy and add the cover of this book!")
+  end
+
+  def and_i_should_see_the_cover_of_the_book
+    expect(page).to have_css("img[src='https://images-na.ssl-images-amazon.com/images/I/5154eSTKUxL._SX382_BO1,204,203,200_.jpg']")
   end
 end
