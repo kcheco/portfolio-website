@@ -14,7 +14,7 @@ feature "Deleting a watched video" do
 
   private
   def given_i_have_a_video_i_no_longer_want_on_my_list
-    @watched_videos_list = FactoryBot.create_list(:watched_video, 5)
+    @watched_videos_list = FactoryBot.create_list(:watched_video, 5, :with_cover)
     @watched_video = @watched_videos_list.first
   end
 

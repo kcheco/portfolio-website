@@ -11,7 +11,7 @@ feature "Updating a watched video" do
 
   private
   def given_i_have_details_of_a_video_i_want_to_change
-    @watched_video = FactoryBot.create(:watched_video)
+    @watched_video = FactoryBot.create(:watched_video, :with_cover)
   end
 
   def when_i_visit_the_edit_page
