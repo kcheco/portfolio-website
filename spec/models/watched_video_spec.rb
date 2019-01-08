@@ -10,8 +10,12 @@ RSpec.describe WatchedVideo, type: :model do
 
   it { should allow_value('https://youtu.be/LMnrH1CN4oc').for(:link) }
 
-  it { should_not allow_values('iamaprogrammer.com', 
-                               'bingo-was-his-name-o.com', 
-                               '1ceuponatime.co').for(:link) }
+  it { should_not allow_values('example.123').for(:link) }
+
+  it { should validate_presence_of :image }
+
+  it { should have_one(:image) }
+
+  it { should accept_nested_attributes_for(:image).allow_destroy(true) }
 
 end

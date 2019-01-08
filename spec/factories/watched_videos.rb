@@ -4,4 +4,8 @@ FactoryBot.define do
     f.date_viewed { "#{Faker::Date.between(Date.today, 5.years.ago)}" }
     f.link { "#{Faker::Internet.url}" }
   end
+
+  trait :with_cover do
+    association(:image)
+  end
 end

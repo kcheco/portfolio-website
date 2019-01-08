@@ -17,6 +17,12 @@
     <%= f.text_field :link %>
   </div>
 
+  <% if @watched_video.has_image? %>
+    <div>
+      <%= image_tag "#{@watched_video.image.source}" %>
+    </div>
+  <% end %>
+
   <div>
     <%= f.submit "Apply Changes" %>
   </div>

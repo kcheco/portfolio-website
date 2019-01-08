@@ -1,6 +1,6 @@
 <h1></h1>
 
-<%= form_for(@watched_video) do |f| %>
+<%= form_for(@watched_video.with_no_cover) do |f| %>
 
   <div>
     <%= f.label :title %>
@@ -16,6 +16,13 @@
     <%= f.label :link %>
     <%= f.text_field :link %>
   </div>
+
+  <%= f.fields_for :image do |image_form| %>
+    <div>
+      <%= image_form.label :source, "Cover" %>
+      <%= image_form.text_field :source %>
+    </div>
+  <% end %>
 
   <div>
     <%= f.submit "Add Video" %>

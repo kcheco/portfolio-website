@@ -67,6 +67,11 @@ class WatchedVideosController < ApplicationController
     params.require(:watched_video)
           .permit(:title,
                   :date_viewed,
-                  :link)
+                  :link,
+                  image_attributes: [
+                    :id,
+                    :source,
+                    :_destroy
+                  ])
   end
 end

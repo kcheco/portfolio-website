@@ -6,8 +6,10 @@ feature "Creating a watched video" do
     and_i_set_the_title
     and_i_set_the_date_i_watched_the_video
     and_i_set_the_link
+    and_i_set_the_cover_of_the_video
     and_i_click_the_create_button
     then_i_should_see_the_watched_video_added_successfully
+    and_i_should_see_the_cover_of_the_video
   end
 
   private
@@ -27,11 +29,19 @@ feature "Creating a watched video" do
     fill_in "Link", :with => "https://youtu.be/NeXQEJNWO5w"
   end
 
+  def and_i_set_the_cover_of_the_video
+    fill_in "Cover", :with => "https://i.ytimg.com/vi/NeXQEJNWO5w/maxresdefault.jpg"
+  end
+
   def and_i_click_the_create_button
     click_button "Add Video"
   end
 
   def then_i_should_see_the_watched_video_added_successfully
     expect(page).to have_content("Video was successfully added.")
+  end
+
+  def and_i_should_see_the_cover_of_the_video
+    expect(page).to have_css("img[src='https://i.ytimg.com/vi/NeXQEJNWO5w/maxresdefault.jpg']")
   end
 end
