@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :project do |f|
-    f.name { "#{Faker::GreekPhilosophers.quote}" }
+    sequence(:name) { |n| "#{Faker::GreekPhilosophers.quote} #{n}" }
     f.date_completed { "#{Faker::Date.between(Date.today, 5.years.ago)}" }
     f.link { "#{Faker::Internet.url}" }
   end
