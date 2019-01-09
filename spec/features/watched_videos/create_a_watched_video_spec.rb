@@ -12,6 +12,15 @@ feature "Creating a watched video" do
     and_i_should_see_the_cover_of_the_video
   end
 
+  scenario "always needs a cover" do
+    when_i_want_to_add_a_video_i_watched
+    and_i_set_the_title
+    and_i_set_the_date_i_watched_the_video
+    and_i_set_the_link
+    and_i_click_the_create_button
+    then_i_should_receive_an_error_for_not_setting_a_cover
+  end
+
   private
   def when_i_want_to_add_a_video_i_watched
     visit '/watched_videos/new'
@@ -43,5 +52,9 @@ feature "Creating a watched video" do
 
   def and_i_should_see_the_cover_of_the_video
     expect(page).to have_css("img[src='https://i.ytimg.com/vi/NeXQEJNWO5w/maxresdefault.jpg']")
+  end
+
+  def then_i_should_receive_an_error_for_not_setting_a_cover
+    expect(page).to have_content("Hey, the cover of this video you watched isn't going to add itself!")
   end
 end
