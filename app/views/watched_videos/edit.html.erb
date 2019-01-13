@@ -19,6 +19,10 @@
 
   <% if @watched_video.has_image? %>
     <div>
+      <%= f.fields_for :image do |image_form| %>
+        <%= image_form.label :source, "Cover" %>
+        <%= image_form.text_field :source %>
+      <% end %>
       <%= image_tag "#{@watched_video.image.source}" %>
     </div>
   <% end %>
