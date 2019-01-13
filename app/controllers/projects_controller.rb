@@ -61,6 +61,11 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name,
                                     :date_completed,
-                                    :link)
+                                    :link,
+                                    image_attributes: [
+                                      :id,
+                                      :source,
+                                      :_destroy
+                                    ])
   end
 end

@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  include Coverable
+
   # validation rules
   validates_presence_of   :name
   validates_presence_of   :date_completed
