@@ -16,4 +16,6 @@ RSpec.describe Project, type: :model do
   it { should_not allow_values("example", 
                                "http://example", 
                                "example.1234").for(:link) }
+
+  it { should validate_presence_of(:image).with_message("The cover of this project was not added.")}
 end

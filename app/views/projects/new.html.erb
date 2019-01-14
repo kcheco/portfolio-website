@@ -2,6 +2,19 @@
 
 <%= form_for(@project.with_no_cover) do |f| %>
 
+  <% if @project.errors.any? %>
+    <h2>There was an error. Fix the <%= pluralize(@project.errors.count, "error") %> below before attempting to save.</h2>
+    <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+
+        <li>
+          <%= msg %>
+        </li>
+
+      <% end %>
+    </ul>
+  <% end %>
+
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>

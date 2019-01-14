@@ -14,7 +14,7 @@ feature "Deleting a project" do
 
   private
   def given_i_have_a_project_i_no_longer_want_to_share_from_my_list
-    @project_list = FactoryBot.create_list(:project, 5)
+    @project_list = FactoryBot.create_list(:project, 5, :with_cover)
     @project = @project_list.first
   end
 
