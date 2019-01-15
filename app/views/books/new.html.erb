@@ -1,6 +1,19 @@
 <h1>Add a book you've read</h1>
 
-<%= form_for(@book_item) do |f| %>
+<%= form_for(@book_item.with_no_cover, html: { multipart: true } ) do |f| %>
+
+  <% if @book_item.errors.any? %>
+    <h2>There was an error. Fix the <%= pluralize(@book_item.errors.count, "error") %> below before attempting to save.</h2>
+    <ul>
+      <% @book_item.errors.full_messages.each do |msg| %>
+
+        <li>
+          <%= msg %>
+        </li>
+
+      <% end %>
+    </ul>
+  <% end %>
 
   <div>
     <%= f.label :title %>
@@ -10,6 +23,13 @@
   <div>
     <%= f.label :date_read, "Date Read" %>
     <%= f.text_field :date_read %>
+  </div>
+
+  <div>
+    <%= f.fields_for :image do |image_form| %>
+      <%= image_form.label :source, "Cover" %>
+      <%= image_form.text_field :source %>
+    <% end %>
   </div>
 
   <div>

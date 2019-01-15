@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [ :edit, :udpate, :destroy ]
+  before_action :set_project, only: [ :edit, :update, :destroy ]
 
   # calls view to display list of projects
   def index
@@ -61,6 +61,11 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name,
                                     :date_completed,
-                                    :link)
+                                    :link,
+                                    image_attributes: [
+                                      :id,
+                                      :source,
+                                      :_destroy
+                                    ])
   end
 end

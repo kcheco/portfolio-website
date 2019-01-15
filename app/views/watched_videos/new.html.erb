@@ -1,6 +1,19 @@
-<h1></h1>
+<h1>Add a video you watched</h1>
 
-<%= form_for(@watched_video) do |f| %>
+<%= form_for(@watched_video.with_no_cover) do |f| %>
+
+  <% if @watched_video.errors.any? %>
+    <h2>There was an error. Fix the <%= pluralize(@watched_video.errors.count, "error") %> below before attempting to save.</h2>
+    <ul>
+      <% @watched_video.errors.full_messages.each do |msg| %>
+
+        <li>
+          <%= msg %>
+        </li>
+
+      <% end %>
+    </ul>
+  <% end %>
 
   <div>
     <%= f.label :title %>
@@ -16,6 +29,13 @@
     <%= f.label :link %>
     <%= f.text_field :link %>
   </div>
+
+  <%= f.fields_for :image do |image_form| %>
+    <div>
+      <%= image_form.label :source, "Cover" %>
+      <%= image_form.text_field :source %>
+    </div>
+  <% end %>
 
   <div>
     <%= f.submit "Add Video" %>

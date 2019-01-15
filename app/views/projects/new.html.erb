@@ -1,6 +1,19 @@
 <h1>Add a new project</h1>
 
-<%= form_for(@project) do |f| %>
+<%= form_for(@project.with_no_cover) do |f| %>
+
+  <% if @project.errors.any? %>
+    <h2>There was an error. Fix the <%= pluralize(@project.errors.count, "error") %> below before attempting to save.</h2>
+    <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+
+        <li>
+          <%= msg %>
+        </li>
+
+      <% end %>
+    </ul>
+  <% end %>
 
   <div>
     <%= f.label :name %>
@@ -16,6 +29,13 @@
     <%= f.label :link %>
     <%= f.text_field :link %>
   </div>
+
+  <%= f.fields_for :image do |image_form| %>
+    <div>
+      <%= image_form.label :source, "Cover" %>
+      <%= image_form.text_field :source %>
+    </div>
+  <% end %>
 
   <div>
     <%= f.submit "Add Project" %>

@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner'
+require 'selenium/webdriver'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -84,4 +85,23 @@ RSpec.configure do |config|
       FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
     end
   end
+
+  # The configuration below came from a mix of resources related to
+  # running tests using selenium and chrome-driver. Selenium along
+  # with chrome-driver opens up a chrome window and performs test.
+  # However, I wanted a more seamless process in case I load this
+  # on a remote server or use Docker
+  Capybara.register_driver :selenium do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w(headless disable-gpu no-sandbox) }
+    )
+
+    Capybara::Selenium::Driver.new(
+      app,
+      browser: :chrome,
+      desired_capabilities: capabilities
+    )
+  end
+
+  Capybara.default_driver = :selenium
 end

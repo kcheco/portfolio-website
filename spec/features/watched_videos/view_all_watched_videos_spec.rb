@@ -9,7 +9,7 @@ feature "Viewing all the wathced videos" do
 
   private
   def given_i_have_a_list_of_videos_i_recorded_as_watched
-    @watched_videos = FactoryBot.create_list(:watched_video, 5)
+    @watched_videos = FactoryBot.create_list(:watched_video, 5, :with_cover)
   end
 
   def when_i_visit_the_watched_videos_page

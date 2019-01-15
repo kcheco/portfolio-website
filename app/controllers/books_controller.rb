@@ -19,6 +19,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book_item.save
+
         format.html { redirect_to edit_book_path(id: @book_item.id), 
                       notice: "Book was successfully added." }
       else
@@ -65,6 +66,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book)
           .permit(:title,
-                  :date_read)
+                  :date_read,
+                  image_attributes: [:id, :source, :_destroy])
   end
 end
