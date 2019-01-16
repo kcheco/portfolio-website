@@ -7,7 +7,7 @@
 
     <% @books.each do |book| %>
 
-      <div class="flex-fill mr-md-3 book-item">
+      <div class="flex-fill mr-md-3 list-item book">
         <a href="<%= edit_book_path(book) %>" title="<%= book.title %>" class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
           <%= image_tag "#{book.image.source}" %>
         </a>

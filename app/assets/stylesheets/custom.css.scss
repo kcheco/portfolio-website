@@ -8,13 +8,13 @@
   overflow: hidden;
 }
 
-.book-item > a {
+.list-item > a {
   position: relative;
   display: block;
   height: 12rem;
 }
 
-.book-item > a > img {
+.list-item > a > img {
   position: absolute;
   width: 100%;
   top: -20%;
