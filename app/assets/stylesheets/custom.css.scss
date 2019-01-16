@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+.rounded-corners {
+  border-radius: 21px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.book-item > a {
+  position: relative;
+  display: block;
+  height: 12rem;
+}
+
+.book-item > a > img {
+  position: absolute;
+  width: 100%;
+  top: -20%;
+}
+.links {
+  text-align: center;
+}

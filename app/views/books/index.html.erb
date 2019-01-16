@@ -1,13 +1,24 @@
-<h1>List of books I've read</h1>
+<div class="w-100 my-md-3 py-md-3">
+  <h3 class="lead text-muted my-md-3">List of books I've read</h3>
 
-<%= link_to "Add New Book", new_book_path %>
+  <%= link_to "Add New Book", new_book_path, class: 'btn btn-outline-primary my-md-3' %>
 
-<% @books.each do |book| %>
+  <div class="d-md-flex w-100 py-md-3">
 
-  <div>
-    <%= book.title %>
-    <%= link_to "Make Changes", edit_book_path(book) %>
-    <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?' } %>
+    <% @books.each do |book| %>
+
+      <div class="flex-fill mr-md-3 book-item">
+        <a href="<%= edit_book_path(book) %>" title="<%= book.title %>" class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+          <%= image_tag "#{book.image.source}" %>
+        </a>
+        <div class="links">
+          <%= link_to "Make Changes", edit_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-2' %>
+          <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?'}, class: 'btn btn-sm btn-outline-danger' %>
+        </div>
+      </div>
+
+    <% end %>
+
   </div>
 
-<% end %>
+</div>
