@@ -1,24 +1,31 @@
 <div class="w-100 my-md-3 py-md-3">
-  <h3 class="lead text-musted my-md-3">List of Youtube Videos I've watched</h3>
 
-  <%= link_to "Add New Video", new_watched_video_path, class: 'btn btn-outline-primary my-md-3' %>
+  <h3 class="lead text-muted my-md-3">List of Youtube Videos I've watched</h3>
 
-  <div class="d-md-flex w-100 py-md-3">
+  <%= link_to "Add New Video", new_watched_video_path, class: 'btn btn-outline-dark my-md-3' %>
 
-    <% @watched_videos.each do |video| %>
+  <% @watched_videos.in_groups_of(3).each do |group| %>
 
-      <div class="flex-fill-mr-md-3 list-item watched_video">
-        <a href="<%= edit_watched_video_path(video) %>" title="<%= video.title %>" class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= image_tag "#{video.image.source}"%>
-        </a>
-        <div class="links">
-          <%= link_to "Make Changes", edit_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mr-md-2' %>
-          <%= link_to "Remove", watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger' %>
-        </div>
-      </div>
+    <div class="row">
 
-    <% end %>
+      <% group.each do |video| %>
 
-  </div>
+        <% if video %>
+
+          <div class="col-md-4 py-md-4 list-item watched_video">
+            <%= link_to (image_tag "#{video.image.source}"), edit_watched_video_path(video), class: 'rounded-corners overflow-hidden shadow-sm bg-light mb-md-3', title: "#{video.title}" %>
+            <div class="links">
+              <%= link_to "Make Changes", edit_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mx-md-1' %>
+              <%= link_to "Remove", watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+            </div>
+          </div>
+
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+  <% end %>
 
 </div>
