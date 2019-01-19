@@ -10,6 +10,24 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
-//= require turbolinks
+//= require jquery-ui/widgets/datepicker
+// require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+
+  $('#book_date_read, #watched_video_date_viewed, #project_date_completed').datepicker({
+    dateFormat: 'yy-mm-dd',
+    defaultYear: '0d',
+    changeYear: true,
+    minDate: new Date(2013, 1-1, 1),
+    maxDate: '0d',
+    showAnim: "fadeIn",
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true
+  });
+
+});
