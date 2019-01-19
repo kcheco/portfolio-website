@@ -1,36 +1,36 @@
-<h1>Editing a project</h1>
+<h1 class="mb-md-3">Editing a project</h1>
 
 <%= form_for(@project) do |f| %>
 
-  <div>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :date_completed, "Date Completed" %>
-    <%= f.text_field :date_completed %>
+    <%= f.text_field :date_completed, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :link %>
-    <%= f.text_field :link %>
+    <%= f.text_field :link, class: 'form-control' %>
   </div>
 
   <% if @project.has_image? %>
 
-    <div>
+    <div class="form-group">
       <%= f.fields_for :image do |image_form| %>
         <%= image_form.label :source, "Cover" %>
-        <%= image_form.text_field :source %>
+        <%= image_form.text_field :source, class: 'form-control' %>
       <% end %>
-      <%= image_tag "#{@project.image.source}" %>
+      <%= image_tag "#{@project.image.source}", class: 'mt-md-3' %>
     </div>
 
   <% end %>
 
   <div>
-    <%= f.submit "Apply Changes" %>
+    <%= f.submit "Apply Changes", class: 'btn btn-primary' %>
   </div>
 
 <% end %>
