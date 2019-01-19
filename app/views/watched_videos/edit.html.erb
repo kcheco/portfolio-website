@@ -1,34 +1,34 @@
-<h1>Edit Watched Video</h2>
+<h1 class="mb-md-3">Edit Watched Video</h2>
 
 <%= form_for(@watched_video) do |f| %>
 
-  <div>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :date_viewed, "Date Viewed" %>
-    <%= f.text_field :date_viewed %>
+    <%= f.text_field :date_viewed, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :link %>
-    <%= f.text_field :link %>
+    <%= f.text_field :link, class: 'form-control' %>
   </div>
 
   <% if @watched_video.has_image? %>
-    <div>
+    <div class="form-group">
       <%= f.fields_for :image do |image_form| %>
         <%= image_form.label :source, "Cover" %>
-        <%= image_form.text_field :source %>
+        <%= image_form.text_field :source, class: 'form-control' %>
       <% end %>
-      <%= image_tag "#{@watched_video.image.source}" %>
+      <%= image_tag "#{@watched_video.image.source}", class: 'mt-md-3' %>
     </div>
   <% end %>
 
   <div>
-    <%= f.submit "Apply Changes" %>
+    <%= f.submit "Apply Changes", class: 'btn btn-primary' %>
   </div>
 
 <% end %>

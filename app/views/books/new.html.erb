@@ -1,39 +1,41 @@
-<h1>Add a book you've read</h1>
+<h1 class="mb-md-3">Add a book you've read</h1>
 
-<%= form_for(@book_item.with_no_cover, html: { multipart: true } ) do |f| %>
+<%= form_for(@book_item.with_no_cover) do |f| %>
 
   <% if @book_item.errors.any? %>
-    <h2>There was an error. Fix the <%= pluralize(@book_item.errors.count, "error") %> below before attempting to save.</h2>
-    <ul>
-      <% @book_item.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+      <h5 class="alert-heading">There was an error. Fix the <%= pluralize(@book_item.errors.count, "error") %> below before attempting to save.</h5>
+      <ul>
+        <% @book_item.errors.full_messages.each do |msg| %>
 
-        <li>
-          <%= msg %>
-        </li>
+          <li>
+            <%= msg %>
+          </li>
 
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control', autofocus: 'true', placeholder: 'Enter the title' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :date_read, "Date Read" %>
-    <%= f.text_field :date_read %>
+    <%= f.text_field :date_read, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.fields_for :image do |image_form| %>
       <%= image_form.label :source, "Cover" %>
-      <%= image_form.text_field :source %>
+      <%= image_form.text_field :source, class: 'form-control', placeholder: 'Enter url for image' %>
     <% end %>
   </div>
 
   <div>
-    <%= f.submit "Add Book" %>
+    <%= f.submit "Add Book", class: 'btn btn-primary' %>
   </div>
 
 <% end %>
