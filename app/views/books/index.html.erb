@@ -13,10 +13,17 @@
         <% if book %>
 
           <div class="col-md-4 py-md-4 list-item book">
-            <%= link_to (image_tag book.image.source), edit_book_path(book), class: 'rounded-corners overflow-hidden shadow-sm bg-light mb-md-3', title: "#{book.title}" %>
+            <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+              <%= image_tag book.image.source, alt: "#{book.title}" %>
+            </div>
             <div class="links">
-              <%= link_to "Make Changes", edit_book_path(book), class: 'btn btn-sm btn-outline-secondary mx-md-1' %>
-              <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?'}, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+              <div class="row px-md-3">
+                <p class="text-muted mb-md-2"><%= book.title %></p>
+              </div>
+              <div class="row px-md-3">
+                <%= link_to "Make Changes", edit_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+                <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?'}, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+              </div>
             </div>
           </div>
 

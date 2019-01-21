@@ -91,17 +91,27 @@ RSpec.configure do |config|
   # with chrome-driver opens up a chrome window and performs test.
   # However, I wanted a more seamless process in case I load this
   # on a remote server or use Docker
-  Capybara.register_driver :selenium do |app|
-    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w(headless disable-gpu no-sandbox) }
-    )
+  #Capybara.register_driver :chrome do |app|
+  #  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+  #    chromeOptions: {}
+  #  )
+  #
+  #  Capybara::Selenium::Driver.new(
+  #    app,
+  #    browser: :chrome,
+  #    desired_capabilities: capabilities
+  #  )
+  #end
 
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      desired_capabilities: capabilities
-    )
+  Capybara.register_driver :headless_chrome do |app|
+    Capybara::Selenium::Driver.load_selenium
+    browser_options = ::Selenium::WebDriver::Chrome::Options.new
+    browser_options.args << '--headless'
+    browser_options.args << '--disable-gpu'
+    browser_options.args << '--no-sandbox'
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
   end
 
-  Capybara.default_driver = :selenium
+  #Capybara.javascript_driver = :headless_chrome
+  Capybara.default_driver = :headless_chrome
 end

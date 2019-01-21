@@ -32,6 +32,8 @@ feature "Creating a project" do
 
   def and_i_set_the_date_the_project_was_completed
     fill_in 'Date Completed', :with => "2019/01/06"
+    # closes datepicker
+    find('.ui-datepicker-close').click
   end
 
   def and_i_set_the_link

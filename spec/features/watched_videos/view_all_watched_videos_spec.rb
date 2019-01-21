@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 feature "Viewing all the wathced videos" do
-  scenario "I am able ot view all dev-related youtube videos I've watched" do
+  background do
     given_i_have_a_list_of_videos_i_recorded_as_watched
+  end
+
+  scenario "I am able ot view all dev-related youtube videos I've watched" do
     when_i_visit_the_watched_videos_page
     then_i_should_see_a_list_of_watched_videos
   end

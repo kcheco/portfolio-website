@@ -45,6 +45,9 @@ feature "Update a project" do
   end
 
   def and_i_click_the_update_button
+    # closes datepicker
+    find('#project_date_completed').click
+    find('.ui-datepicker-close').click
     click_button "Apply Changes"
   end
 

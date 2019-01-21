@@ -8,15 +8,13 @@
   overflow: hidden;
 }
 
-.list-item > a {
+.list-item > div.rounded-corners {
   position: relative;
-  display: block;
   height: 12rem;
 }
 
-.list-item > a > img {
+.list-item > div.rounded-corners > img {
   position: absolute;
-  /* width: 100%; */
   top: -20%;
 }
 .links {
