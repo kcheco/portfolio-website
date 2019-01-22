@@ -6,4 +6,9 @@ class Project < ApplicationRecord
   validates_presence_of   :date_completed
   validates_presence_of   :image, message: 'The cover of this project was not added.'
   validates               :link, presence: true, url: true
+
+  # scopes
+  def self.latest
+    order(date_completed: :desc)
+  end
 end
