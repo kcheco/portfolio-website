@@ -1,3 +1,11 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.cta .btn {
+    border-radius: 30px;
+    background: linear-gradient(to left, #0072ff, #00c6ff);
+}
+
+.about p.lead {
+    word-spacing: 4px;
+}
