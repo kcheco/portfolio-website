@@ -10,6 +10,7 @@
 
   <body>
 
+    <!-- begin .container -->
     <div class="container">
 
       <p><%= notice %></p>
@@ -17,6 +18,11 @@
       <%= yield %>
 
     </div>
+    <!--/ end .container -->
+
+    <!-- begin .footer-nav -->
+    <%= render 'shared/footer' %>
+    <!--/ end .footer-nav -->
 
   </body>
 </html>

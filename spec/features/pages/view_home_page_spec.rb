@@ -13,6 +13,7 @@ feature "View home page" do
     and_i_should_see_the_three_most_recent_projects
     and_i_should_see_the_three_most_recent_books_ive_read
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
+    and_i_should_see_a_navbar_as_the_footer
   end
 
   private
@@ -68,5 +69,9 @@ feature "View home page" do
     expect(page).to have_css("img[src='#{@watched_video3.image.source}']")
     expect(page).to have_css("img[src='#{@watched_video2.image.source}']")
     expect(page).to_not have_css("img[src='#{@watched_video1.image.source}']")
+  end
+
+  def and_i_should_see_a_navbar_as_the_footer
+    expect(page).to have_selector(".footer-nav")
   end
 end
