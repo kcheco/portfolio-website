@@ -18,4 +18,12 @@ RSpec.describe WatchedVideo, type: :model do
 
   it { should accept_nested_attributes_for(:image).allow_destroy(true) }
 
+  it "shows the last viewed videos first" do
+    old_video = FactoryBot.create(:watched_video, :with_cover, date_viewed: 1.month.ago)
+    recent_video = FactoryBot.create(:watched_video, :with_cover, date_viewed: 1.day.ago)
+
+    expect(WatchedVideo.last_viewed.first).to eq(recent_video)
+    expect(WatchedVideo.last_viewed.last).to eq(old_video)
+  end
+
 end
