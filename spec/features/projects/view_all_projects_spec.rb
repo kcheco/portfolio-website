@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 feature "Viewing a list of projects" do
-  scenario "I am able to see a list of the projects I have completed" do
+  background do
     given_i_have_a_list_of_projects
+  end
+
+  scenario "I am able to see a list of the projects I have completed" do
     when_i_visit_the_projects_page
     then_i_should_see_the_list_of_projects_i_completed
   end

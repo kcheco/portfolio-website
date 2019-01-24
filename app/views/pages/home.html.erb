@@ -1,0 +1,153 @@
+<!-- begin .profile -->
+<div class="profile d-md-flex w-100 my-md-3 pl-md-3">
+
+  <div class="w-25 mr-md-3">
+    <img class="img-fluid shadow-sm rounded-corners" src="http://checodesigns.com/resume/images/profile.png">
+  </div>
+
+  <div class="w-75 mr-md-3 px-5 px-md-5">
+    <h1 class="display-2">Kelvin Checo</h1>
+    <h1 class="display-4 text-muted">A fullstack engineer</h1>
+    <p class="lead text-muted">New York, NY</p>
+    <div class="cta my-md-3">
+      <a class="bg-primary btn-lg btn shadow text-white px-md-4 py-md-2" href="#">Contact Me</a>
+    </div>
+  </div>
+
+</div>
+<!--/ end .profile -->
+
+<div class="w-100 border-bottom"></div>
+
+<!-- begin .about -->
+<div class="about w-100 my-md-3 py-md-3">
+
+  <div class="w-100">
+    <h3 class="lead text-muted">About me</h3>
+    <p class="lead">
+      Throughout years of utilizing the most popular medium and always being connected with the art industry and latest design trends, I have found excitement in Web Design & Development. I started to learn front end development at the time when social media was at its infancy and people were able to modify their profile by inserting chunks of CSS into a comment field while editing their profile. While my strengths are mostly in back-end development, design - specifically UI/UX design - piques my interest. Throughout the years I have designed & developed static websites, custom CMS's, e-commerce websites, utilized WordPress, and developed APIs using back end technologies like Ruby on Rails & PHP. Some of the soft skills that come natural to me and has helped me in creating solutions for my clients and colleagues are being an active listener, being attentive to detail, and I am really good problem-solver.
+    </p>
+  </div>
+
+</div>
+<!--/ end .about -->
+
+<div class="w-100 border-bottom"></div>
+
+<!-- begin .projects -->
+<div class="projects w-100 my-md-3 py-md-3">
+  <h3 class="lead text-muted">Projects</h3>
+
+  <div class="d-md-flex w-100 py-md-3">
+
+  <% @projects.first(3).each do |project| %>
+
+    <div class="col-md-4 pr-md-4 pl-md-0 list-item project">
+      <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+        <%= link_to image_tag(project.image.source, alt: "#{project.name}"), project.link, target: '_blank' %>
+      </div>
+      <div class="links">
+        <div class="row px-md-3">
+          <p class="text-muted mb-md-2"><%= project.name %></p>
+        </div>
+        <div class="row px-md-3">
+          <%= link_to "Make Changes", edit_project_path(project), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+          <%= link_to "Remove", project_path(project), method: :delete, data: { confirm: 'Are you sure you no longer want to share this project?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+  </div>
+
+  <% if @projects.count > 3 %>
+
+    <div class="w-100 text-right">
+      <%= link_to 'See more >> ', projects_path %>
+    </div>
+
+  <% end %>
+
+</div>
+<!--/ end .projects -->
+
+<div class="w-100 border-bottom"></div>
+
+<!-- begin .books -->
+<div class="books w-100 my-md-3 py-md-3">
+
+  <h3 class="lead text-muted">Books I've Read</h3>
+  <div class="d-md-flex w-100 py-md-3">
+
+    <% @books.first(3).each do |book| %>
+
+      <div class="col-md-4 pr-md-4 pl-md-0 list-item book">
+        <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+          <%= link_to image_tag(book.image.source, alt: "#{book.title}"), '#' %>
+        </div>
+        <div class="links">
+          <div class="row px-md-3">
+            <p class="text-muted mb-md-2"><%= book.title %></p>
+          </div>
+          <div class="row px-md-3">
+            <%= link_to "Make Changes", edit_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+            <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <% if @books.count > 3 %>
+
+    <div class="w-100 text-right">
+      <%= link_to 'See more >> ', books_path %>
+    </div>
+
+  <% end %>
+
+</div>
+<!--/ end .books -->
+
+<div class="w-100 border-bottom"></div>
+
+<!-- begin .watched_videos -->
+<div class="watched_videos w-100 my-md-3 py-md-3">
+
+  <h3 class="lead text-muted">Videos I've recently watched</h3>
+  <div class="d-md-flex w-100 py-md-3">
+
+  <% @watched_videos.first(3).each do |video| %>
+
+      <div class="col-md-4 pr-md-4 pl-md-0 list-item video">
+        <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+          <%= link_to image_tag(video.image.source, alt: "#{video.title}"), '#' %>
+        </div>
+        <div class="links">
+          <div class="row px-md-3">
+            <p class="text-muted mb-md-2"><%= video.title %></p>
+          </div>
+          <div class="row px-md-3">
+            <%= link_to "Make Changes", edit_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+            <%= link_to "Remove", watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <% if @watched_videos.count > 3 %>
+
+    <div class="w-100 text-right">
+      <%= link_to 'See more >> ', watched_videos_path %>
+    </div>
+
+  <% end %>
+
+</div>
+<!--/ end .watched_videos -->

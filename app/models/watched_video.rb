@@ -7,4 +7,9 @@ class WatchedVideo < ApplicationRecord
   validates               :link, presence: true,
                                  url: true
   validates_presence_of   :image, message: "Hey, the cover of this video you watched isn't going to add itself!"
+
+  # scopes
+  def self.last_viewed
+    order(date_viewed: :desc)
+  end
 end

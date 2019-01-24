@@ -40,6 +40,9 @@ feature "Updating a watched video" do
   end
 
   def and_i_click_the_update_button
+    # close datepicker
+    find('#watched_video_date_viewed').click
+    find('.ui-datepicker-close').click
     click_button 'Apply Changes'
   end
 

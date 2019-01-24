@@ -28,7 +28,7 @@ RSpec.feature "Update a book", type: :feature do
   def when_i_click_on_the_book_i_want_to_edit
     visit "/books"
     page.has_content?("#{@book.title}")
-    find(:xpath, "//a[contains(@href,'/books/#{@book.id}/edit')]").click
+    find(:css, "a[href='/books/#{@book.id}/edit").click
   end
 
   def and_i_change_the_title_of_the_book
@@ -40,7 +40,7 @@ RSpec.feature "Update a book", type: :feature do
   end
 
   def and_i_click_the_update_button
-    click_button "Update Book"
+    click_button "Apply Changes"
   end
 
   def then_i_should_see_the_book_was_successfully_updated

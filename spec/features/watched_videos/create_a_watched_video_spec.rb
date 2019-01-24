@@ -32,6 +32,8 @@ feature "Creating a watched video" do
 
   def and_i_set_the_date_i_watched_the_video
     fill_in "Date Viewed", :with => "2018/12/19"
+    # closes datepicker
+    find('.ui-datepicker-close').click
   end
 
   def and_i_set_the_link

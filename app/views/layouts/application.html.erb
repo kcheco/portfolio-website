@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Checo Portfolio</title>
+    <title>Full Stack Engineer | NYC | Kelvin Checo</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,13 +10,21 @@
 
   <body>
 
+    <!-- begin .container -->
     <div class="container">
 
-      <p><%= notice %></p>
+      <% if notice %>
+        <p><%= notice %></p>
+      <% end %>
 
       <%= yield %>
 
     </div>
+    <!--/ end .container -->
+
+    <!-- begin .footer-nav -->
+    <%= render 'shared/footer' %>
+    <!--/ end .footer-nav -->
 
   </body>
 </html>
