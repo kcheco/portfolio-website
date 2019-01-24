@@ -20,6 +20,11 @@ RSpec.feature "Update a book", type: :feature do
    and_i_should_see_the_updated_cover
   end
 
+  scenario "I am able to successfully change the link to the book" do
+    when_i_click_on_the_book_i_want_to_edit
+    and_i_change_the_link_to_the_book
+  end
+
   private
   def given_i_want_to_apply_changes_to_a_book
     @book = FactoryBot.create(:book, :with_cover)
@@ -33,6 +38,10 @@ RSpec.feature "Update a book", type: :feature do
 
   def and_i_change_the_title_of_the_book
     fill_in "Title", :with => "Clean Code"
+  end
+
+  def and_i_change_the_link_to_the_book
+    fill_in "Link", :with => 'http://example-book-store.com'
   end
 
   def and_i_change_the_cover_of_the_book
