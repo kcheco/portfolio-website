@@ -2,20 +2,7 @@
 
 <%= form_for(@book_item) do |f| %>
 
-<% if @book_item.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <h5 class="alert-heading">There was an error. Fix the <%= pluralize(@book_item.errors.count, "error") %> below before attempting to save.</h5>
-      <ul>
-        <% @book_item.errors.full_messages.each do |msg| %>
-
-          <li>
-            <%= msg %>
-          </li>
-
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= display_form_errors_for @book_item %>
 
   <div class="form-group">
     <%= f.label :title %>

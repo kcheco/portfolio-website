@@ -2,6 +2,8 @@
 
 <%= form_for(@watched_video) do |f| %>
 
+  <%= display_form_errors_for @watched_video %>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
