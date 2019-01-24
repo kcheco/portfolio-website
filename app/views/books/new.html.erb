@@ -28,6 +28,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :link %>
+    <%= f.text_field :link, class: 'form-control', placeholder: 'Enter the url about the book'%>
+  </div>
+
+  <div class="form-group">
     <%= f.fields_for :image do |image_form| %>
       <%= image_form.label :source, "Cover" %>
       <%= image_form.text_field :source, class: 'form-control', placeholder: 'Enter url for image' %>
