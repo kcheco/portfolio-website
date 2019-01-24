@@ -23,6 +23,8 @@ RSpec.feature "Update a book", type: :feature do
   scenario "I am able to successfully change the link to the book" do
     when_i_click_on_the_book_i_want_to_edit
     and_i_change_the_link_to_the_book
+    and_i_click_the_update_button
+    then_i_should_see_the_book_was_successfully_updated
   end
 
   private
