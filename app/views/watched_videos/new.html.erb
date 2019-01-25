@@ -2,20 +2,7 @@
 
 <%= form_for(@watched_video.with_no_cover) do |f| %>
 
-  <% if @watched_video.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <h5 class="alert-heading">There was an error. Fix the <%= pluralize(@watched_video.errors.count, "error") %> below before attempting to save.</h2>
-      <ul>
-        <% @watched_video.errors.full_messages.each do |msg| %>
-
-          <li>
-            <%= msg %>
-          </li>
-
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= display_form_errors_for @watched_video %>
 
   <div class="form-group">
     <%= f.label :title %>

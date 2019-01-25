@@ -5,6 +5,7 @@ feature "Creating a book" do
     when_i_want_to_create_a_book
     and_i_set_the_title
     and_i_set_the_date_i_read_the_book
+    and_i_set_the_link_about_the_book
     and_i_set_the_cover_of_the_book
     and_i_click_the_create_button
     then_i_should_see_the_book_was_added_successfully
@@ -33,6 +34,10 @@ feature "Creating a book" do
     fill_in "Date Read", :with => "2018/12/13"
     # closes datepicker
     find('.ui-datepicker-close').click
+  end
+
+  def and_i_set_the_link_about_the_book
+    fill_in "Link", :with => "#{Faker::Internet.url}"
   end
 
   def and_i_set_the_cover_of_the_book

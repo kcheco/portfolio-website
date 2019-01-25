@@ -84,7 +84,7 @@
 
       <div class="col-md-4 pr-md-4 pl-md-0 list-item book">
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= link_to image_tag(book.image.source, alt: "#{book.title}"), '#' %>
+          <%= link_to image_tag(book.image.source, alt: "#{book.title}"), book.link, target: '_blank' %>
         </div>
         <div class="links">
           <div class="row px-md-3">
@@ -124,7 +124,7 @@
 
       <div class="col-md-4 pr-md-4 pl-md-0 list-item video">
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= link_to image_tag(video.image.source, alt: "#{video.title}"), '#' %>
+          <%= link_to image_tag(video.image.source, alt: "#{video.title}"), video.link, target: '_blank' %>
         </div>
         <div class="links">
           <div class="row px-md-3">

@@ -67,6 +67,7 @@ class BooksController < ApplicationController
     params.require(:book)
           .permit(:title,
                   :date_read,
+                  :link,
                   image_attributes: [:id, :source, :_destroy])
   end
 end

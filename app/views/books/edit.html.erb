@@ -2,6 +2,8 @@
 
 <%= form_for(@book_item) do |f| %>
 
+  <%= display_form_errors_for @book_item %>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -10,6 +12,11 @@
   <div class="form-group">
     <%= f.label :date_read, "Date Read" %>
     <%= f.text_field :date_read, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :link %>
+    <%= f.text_field :link, class: 'form-control' %>
   </div>
 
   <% if @book_item.has_image? %>
