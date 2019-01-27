@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="#">Admin</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark' %></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+<% end %>

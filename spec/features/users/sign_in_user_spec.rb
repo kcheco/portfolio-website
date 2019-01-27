@@ -11,6 +11,7 @@ feature 'Sign in user' do
     and_i_set_my_password
     and_i_click_the_login_button
     then_i_should_see_i_successfully_signed_in
+    and_i_should_see_logout_button
   end
 
   scenario 'with invalid credentials provides feedback' do
@@ -48,5 +49,9 @@ feature 'Sign in user' do
 
   def then_i_should_see_i_provided_invalid_credentials
     expect(page).to have_content("Invalid email or password.")
+  end
+
+  def and_i_should_see_logout_button
+    expect(page).to have_content("Logout")
   end
 end

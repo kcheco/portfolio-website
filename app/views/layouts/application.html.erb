@@ -10,12 +10,14 @@
 
   <body>
 
+    <%= render 'shared/header' %>
+
     <!-- begin .container -->
     <div class="container">
 
       <% flash.each do |key, message| %>
         <div class="text-center alert
-                    alert-<%= key == 'notice' ? 'primary' : 'warning' %>" role="alert">
+                    alert-<%= key == 'notice' ? 'light' : 'warning' %>" role="alert">
             <%= message %>
         </div>
       <% end %>
