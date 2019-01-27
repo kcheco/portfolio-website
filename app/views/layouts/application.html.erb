@@ -13,12 +13,11 @@
     <!-- begin .container -->
     <div class="container">
 
-      <% if notice %>
-        <p><%= notice %></p>
-      <% end %>
-
-      <% if alert %>
-        <p><%= alert %></p>
+      <% flash.each do |key, message| %>
+        <div class="text-center alert
+                    alert-<%= key == 'notice' ? 'primary' : 'warning' %>" role="alert">
+            <%= message %>
+        </div>
       <% end %>
 
       <%= yield %>
