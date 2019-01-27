@@ -23,7 +23,7 @@ feature 'Sign in user' do
 
   private
   def given_i_have_already_signed_up_as_a_user
-    @account = User.create({email: 'checokelvin@gmail.com', 
+    @user = User.create({email: 'checokelvin@gmail.com', 
                             password: 'testpw123'})
   end
 
