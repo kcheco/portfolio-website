@@ -1,0 +1,33 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin col-md-4 m-md-auto pt-md-5 pb-md-2 px-md-4 shadow-sm bg-white rounded-corners'}) do |f| %>
+
+  <h2 class="mb-md-5">Log in</h2>
+
+  <div class="form-group">
+    <%= f.label :email, class: 'sr-only' %>
+    <%= f.email_field :email, class: 'form-control', placeholder: 'Enter your email', autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, class: 'sr-only' %>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Enter your password', autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="form-group form-check-inline">
+      <%= f.check_box :remember_me, class: 'form-check-input' %>
+      <%= f.label :remember_me, class: 'form-check-label' %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit "Log in", class: 'btn btn-primary btn-block btn-lg' %>
+  </div>
+
+  <div class="form-group mb-md-4">
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+  </div>
+
+  <div class="form-group">
+    <%= link_to "Return to home", root_path %>
+  </div>
+<% end %>

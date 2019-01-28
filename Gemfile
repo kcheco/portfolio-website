@@ -40,6 +40,9 @@ gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
+# User managment, authentication, and authorization
+gem 'devise', '~> 4.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

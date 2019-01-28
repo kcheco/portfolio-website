@@ -85,6 +85,8 @@ RSpec.configure do |config|
       FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
     end
   end
+  
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 
   # The configuration below came from a mix of resources related to
   # running tests using selenium and chrome-driver. Selenium along
