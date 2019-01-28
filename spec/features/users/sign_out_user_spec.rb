@@ -12,7 +12,7 @@ feature 'Sign out user' do
   end
 
   private
-  def given_i_have_succesfully_signed_in
+  def given_i_have_successfully_signed_in
     @user = User.create({email: 'checokelvin@gmail.com', 
                          password: 'testpw123'})
     sign_in @user
