@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Sign out user' do
   background do
-    given_i_have_succesfully_signed_in
+    given_i_have_successfully_signed_in
   end
 
   scenario do
@@ -14,7 +14,7 @@ feature 'Sign out user' do
   private
   def given_i_have_succesfully_signed_in
     @user = User.create({email: 'checokelvin@gmail.com', 
-                            password: 'testpw123'})
+                         password: 'testpw123'})
     sign_in @user
   end
 

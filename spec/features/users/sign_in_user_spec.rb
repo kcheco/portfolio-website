@@ -24,7 +24,7 @@ feature 'Sign in user' do
   private
   def given_i_have_already_signed_up_as_a_user
     @user = User.create({email: 'checokelvin@gmail.com', 
-                            password: 'testpw123'})
+                         password: 'testpw123'})
   end
 
   def when_i_visit_the_login_page

@@ -1,7 +1,8 @@
 @import "bootstrap";
 
-body {
+body, html {
   padding-bottom: 60px;
+  height: 100%;
 }
 
 .rounded-corners {
@@ -23,4 +24,15 @@ body {
 }
 .links {
   text-align: center;
+}
+
+.login-bg {
+  display: flex;
+  align-items: center;
+}
+.login-bg.northern-lights {
+  background: linear-gradient(200deg, rgb(60, 7, 73), #5f1d84 23.95%, rgb(56, 92, 160) 45.8%, #04b164 72.27%, #acff68 93.7%);
+}
+.login-bg.default {
+  background: linear-gradient(209deg, #0e24b1, rgb(177, 95, 67) 52.1%, #ffd172);
 }
