@@ -87,6 +87,7 @@ RSpec.configure do |config|
   end
   
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   # The configuration below came from a mix of resources related to
   # running tests using selenium and chrome-driver. Selenium along
