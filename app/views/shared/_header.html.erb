@@ -5,9 +5,9 @@
       <a class="navbar-brand" href="#">Admin</a>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
         <li class="nav-item"><%= link_to "Home", root_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to "Books", books_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to "WathedVideos", watched_videos_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to "Projects", projects_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Books", admin_books_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "WatchedVideos", admin_watched_videos_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Projects", admin_projects_path, class: 'nav-link' %></li>
       </ul>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark ml-md-3' %>
     </nav>

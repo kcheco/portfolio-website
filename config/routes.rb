@@ -9,11 +9,15 @@ Rails.application.routes.draw do
    delete  'admin/logout',  to: 'devise/sessions#destroy',  as: 'destroy_user_session'
   end
 
-  scope '/admin' do
+  namespace 'admin' do
     resources :books, only: [ :new, :create, :edit, :update, :index, :destroy ]
     resources :watched_videos, only: [ :new, :create, :edit, :update, :index, :destroy ]
     resources :projects, only: [ :index, :new, :create, :edit, :update, :destroy ]
   end
+
+  resources :books, only: [ :index ]
+  resources :watched_videos, only: [ :index ]
+  resources :projects, only: [ :index ]
 
   root to: 'pages#home'
 end

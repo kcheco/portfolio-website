@@ -1,0 +1,38 @@
+<div class="w-100 my-md-3 py-md-3">
+
+  <h3 class="lead text-muted my-md-3">List of Youtube Videos I've watched</h3>
+
+  <%= link_to "Add New Video", new_admin_watched_video_path, class: 'btn btn-outline-dark my-md-3' %>
+
+  <% @watched_videos.in_groups_of(3).each do |group| %>
+
+    <div class="row">
+
+      <% group.each do |video| %>
+
+        <% if video %>
+
+          <div class="col-md-4 py-md-4 list-item watched_video">
+            <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+              <%= image_tag video.image.source, alt: "#{video.title}" %>
+            </div>
+            <div class="links">
+              <div class="row px-md-3">
+                <p class="text-muted mb-md-2"><%= video.title %></p>
+              </div>
+              <div class="row px-md-3">
+                <%= link_to "Make Changes", edit_admin_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+                <%= link_to "Remove", admin_watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>

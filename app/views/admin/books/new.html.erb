@@ -1,6 +1,6 @@
 <h1 class="mb-md-3">Add a book you've read</h1>
 
-<%= form_for(@book_item.with_no_cover) do |f| %>
+<%= form_for(@book_item.with_no_cover, url: admin_books_path) do |f| %>
 
   <%= display_form_errors_for @book_item %>
 

@@ -1,6 +1,6 @@
 <h1 class="mb-md-3">Edit Book</h1>
 
-<%= form_for(@book_item) do |f| %>
+<%= form_for(@book_item, url: admin_book_path(id: @book_item)) do |f| %>
 
   <%= display_form_errors_for @book_item %>
 

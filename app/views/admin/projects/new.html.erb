@@ -1,6 +1,6 @@
 <h1 class="mb-md-3">Add a new project</h1>
 
-<%= form_for(@project.with_no_cover) do |f| %>
+<%= form_for(@project.with_no_cover, url: admin_projects_path) do |f| %>
 
   <%= display_form_errors_for @project %>
 

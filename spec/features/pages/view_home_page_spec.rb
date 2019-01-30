@@ -7,25 +7,35 @@ feature "View home page" do
     and_i_have_a_list_of_dev_videos_ive_watched
   end
 
-  scenario do
+  scenario 'not as an admin does not show admin nav' do
+    when_i_visit_the_home_page
+    then_i_should_see_the_heading_of_each_section
+    and_i_should_see_the_three_most_recent_projects
+    and_i_should_see_the_three_most_recent_books_ive_read
+    and_i_should_see_the_three_most_recent_dev_videos_ive_watched
+    and_i_should_not_see_admin_navbar
+    and_i_should_see_a_navbar_as_the_footer
+  end
+
+  scenario 'as an admin allows for editing content' do
+    given_i_am_an_admin
+    and_i_have_signed_in
     when_i_visit_the_home_page
     then_i_should_see_the_heading_of_each_section
     and_i_should_see_the_three_most_recent_projects
     and_i_should_see_the_three_most_recent_books_ive_read
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
     and_i_should_see_a_navbar_as_the_footer
-  end
-
-  scenario 'as an admin allows for editing content' do
-    given_i_have_signed_in_as_admin
-    when_i_visit_the_home_page
-    then_i_should_see_admin_navbar
+    and_i_should_see_admin_navbar
   end
 
   private
-  def given_i_have_signed_in_as_admin
+  def given_i_am_an_admin
     @user = User.create({email: 'checokelvin@gmail.com', 
                          password: 'testpw123'})
+  end
+
+  def and_i_have_signed_in
     sign_in @user
   end
 
@@ -87,10 +97,17 @@ feature "View home page" do
     expect(page).to have_selector(".footer-nav")
   end
 
-  def then_i_should_see_admin_navbar
+  def and_i_should_see_admin_navbar
     expect(page).to have_selector(".navbar-nav")
     expect(page).to have_css("a[href='/admin/books']")
     expect(page).to have_css("a[href='/admin/watched_videos']")
     expect(page).to have_css("a[href='/admin/projects']")
+  end
+
+  def and_i_should_not_see_admin_navbar
+    expect(page).to_not have_select(".navbar-nav")
+    expect(page).to_not have_css("a[href='/admin/books']")
+    expect(page).to_not have_css("a[href='/admin/watched_videos']")
+    expect(page).to_not have_css("a[href='/admin/projects']")
   end
 end
