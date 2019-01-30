@@ -27,9 +27,9 @@ feature "Update a project" do
   end
 
   def when_i_see_the_project_i_want_to_edit
-    visit "/projects"
+    visit "/admin/projects"
     page.has_content?("#{@project.name}")
-    find(:css, "a[href='/projects/#{@project.id}/edit']").click
+    find(:css, "a[href='/admin/projects/#{@project.id}/edit']").click
   end
 
   def and_i_change_the_project_name

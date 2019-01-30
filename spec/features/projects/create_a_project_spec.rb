@@ -22,7 +22,7 @@ feature "Creating a project" do
   end
 
   def when_i_want_to_add_a_new_project_to_my_list
-    visit '/projects'
+    visit '/admin/projects'
     click_link 'Add New Project'
   end
 

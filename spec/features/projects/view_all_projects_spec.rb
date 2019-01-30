@@ -16,7 +16,7 @@ feature "Viewing a list of projects" do
   end
 
   def when_i_visit_the_projects_page
-    visit '/projects'
+    visit '/admin/projects'
   end
 
   def then_i_should_see_the_list_of_projects_i_completed

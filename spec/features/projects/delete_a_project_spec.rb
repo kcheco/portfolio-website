@@ -19,12 +19,12 @@ feature "Deleting a project" do
   end
 
   def when_i_see_the_project_i_no_longer_want_to_share
-    visit '/projects'
+    visit '/admin/projects'
   end
 
   def and_i_click_the_delete_button
     accept_confirm do
-      find(:css, "a[href='/projects/#{@project.id}']").click
+      find(:css, "a[href='/admin/projects/#{@project.id}']").click
     end
   end
 
