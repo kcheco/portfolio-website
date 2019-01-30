@@ -108,10 +108,12 @@ RSpec.configure do |config|
   Capybara.register_driver :headless_chrome do |app|
     Capybara::Selenium::Driver.load_selenium
     browser_options = ::Selenium::WebDriver::Chrome::Options.new
+    client = ::Selenium::WebDriver::Remote::Http::Default.new
     browser_options.args << '--headless'
     browser_options.args << '--disable-gpu'
     browser_options.args << '--no-sandbox'
-    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+    client.read_timeout = 90
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options, http_client: client)
   end
 
   #Capybara.javascript_driver = :headless_chrome
