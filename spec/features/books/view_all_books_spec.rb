@@ -16,7 +16,7 @@ RSpec.feature "Viewing a list of books", :type => :feature do
   end
 
   def when_i_visit_the_books_page
-    visit '/books'
+    visit '/admin/books'
   end
 
   def then_i_should_see_the_list_of_books_i_have_read

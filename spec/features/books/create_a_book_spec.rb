@@ -22,7 +22,7 @@ feature "Creating a book" do
 
   private
   def when_i_want_to_create_a_book
-    visit "/books"
+    visit "/admin/books"
     click_link "Add New Book"
   end
 

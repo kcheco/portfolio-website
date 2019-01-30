@@ -40,9 +40,9 @@ RSpec.feature "Update a book", type: :feature do
   end
 
   def when_i_click_on_the_book_i_want_to_edit
-    visit "/books"
+    visit "/admin/books"
     page.has_content?("#{@book.title}")
-    find(:css, "a[href='/books/#{@book.id}/edit").click
+    find(:css, "a[href='/admin/books/#{@book.id}/edit").click
   end
 
   def and_i_change_the_title_of_the_book
