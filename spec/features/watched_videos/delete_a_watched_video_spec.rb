@@ -19,12 +19,12 @@ feature "Deleting a watched video" do
   end
 
   def when_i_see_the_video_i_want_to_delete_on_the_watched_videos_page
-    visit '/watched_videos'
+    visit '/admin/watched_videos'
   end
 
   def and_i_click_the_delete_button
     accept_confirm do
-      find(:css, "a[href='/watched_videos/#{@watched_video.id}']").click
+      find(:css, "a[href='/admin/watched_videos/#{@watched_video.id}']").click
     end
   end
 

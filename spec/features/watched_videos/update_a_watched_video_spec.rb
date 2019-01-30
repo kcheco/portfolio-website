@@ -26,9 +26,9 @@ feature "Updating a watched video" do
   end
 
   def when_i_click_on_the_video_i_want_to_edit
-    visit "/watched_videos"
+    visit "/admin/watched_videos"
     has_content?("#{@watched_video.title}")
-    find(:css, "a[href='/watched_videos/#{@watched_video.id}/edit']").click
+    find(:css, "a[href='/admin/watched_videos/#{@watched_video.id}/edit']").click
   end
 
   def and_i_set_a_different_date

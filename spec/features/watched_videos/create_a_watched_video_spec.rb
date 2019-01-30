@@ -23,7 +23,8 @@ feature "Creating a watched video" do
 
   private
   def when_i_want_to_add_a_video_i_watched
-    visit '/watched_videos/new'
+    visit '/admin/watched_videos'
+    click_link "Add New Video"
   end
 
   def and_i_set_the_title

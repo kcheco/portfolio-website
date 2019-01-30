@@ -16,7 +16,7 @@ feature "Viewing all the wathced videos" do
   end
 
   def when_i_visit_the_watched_videos_page
-    visit '/watched_videos'
+    visit '/admin/watched_videos'
   end
 
   def then_i_should_see_a_list_of_watched_videos
