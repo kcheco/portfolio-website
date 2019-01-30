@@ -89,8 +89,8 @@ feature "View home page" do
 
   def then_i_should_see_admin_navbar
     expect(page).to have_selector(".navbar-nav")
-    expect(page).to have_css("a[href='admin/books']")
-    expect(page).to have_css("a[href='admin/watched-videos']")
-    expect(page).to have_css("a[href='admin/projects']")
+    expect(page).to have_css("a[href='/admin/books']")
+    expect(page).to have_css("a[href='/admin/watched_videos']")
+    expect(page).to have_css("a[href='/admin/projects']")
   end
 end
