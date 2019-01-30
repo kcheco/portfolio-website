@@ -16,7 +16,19 @@ feature "View home page" do
     and_i_should_see_a_navbar_as_the_footer
   end
 
+  scenario 'as an admin allows for editing content' do
+    given_i_have_signed_in_as_admin
+    when_i_visit_the_home_page
+    then_i_should_see_admin_navbar
+  end
+
   private
+  def given_i_have_signed_in_as_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+    sign_in @user
+  end
+
   def given_i_have_a_list_of_projects
     @project1 = FactoryBot.create(:project, :with_cover, date_completed: 1.year.ago)
     @project2 = FactoryBot.create(:project, :with_cover, date_completed: 1.month.ago)
@@ -73,5 +85,12 @@ feature "View home page" do
 
   def and_i_should_see_a_navbar_as_the_footer
     expect(page).to have_selector(".footer-nav")
+  end
+
+  def then_i_should_see_admin_navbar
+    expect(page).to have_selector(".navbar-nav")
+    expect(page).to have_css("a[href='admin/books']")
+    expect(page).to have_css("a[href='admin/watched-videos']")
+    expect(page).to have_css("a[href='admin/projects']")
   end
 end

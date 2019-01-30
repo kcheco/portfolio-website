@@ -9,9 +9,11 @@ Rails.application.routes.draw do
    delete  'admin/logout',  to: 'devise/sessions#destroy',  as: 'destroy_user_session'
   end
 
-  resources :books, only: [ :new, :create, :show, :edit, :update, :index, :destroy ]
-  resources :watched_videos, only: [ :new, :create, :edit, :update, :index, :destroy ]
-  resources :projects, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  scope '/admin' do
+    resources :books, only: [ :new, :create, :edit, :update, :index, :destroy ]
+    resources :watched_videos, only: [ :new, :create, :edit, :update, :index, :destroy ]
+    resources :projects, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  end
 
   root to: 'pages#home'
 end
