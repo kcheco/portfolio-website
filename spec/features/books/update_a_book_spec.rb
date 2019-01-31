@@ -1,26 +1,28 @@
 require 'rails_helper'
 
-RSpec.feature "Update a book", type: :feature do
+feature "Update a book" do
   background do
     given_i_want_to_apply_changes_to_a_book
+    and_i_am_an_admin
+    and_i_log_in
   end
 
-  scenario "I am able to successfully change the title of a book" do
+  scenario "as an admin allows me to successfully change the title of a book" do
     when_i_click_on_the_book_i_want_to_edit
     and_i_change_the_title_of_the_book
     and_i_click_the_update_button
     then_i_should_see_the_book_was_successfully_updated
   end
 
-  scenario "I am able to successfully change to cover of the book" do
-   when_i_click_on_the_book_i_want_to_edit
-   and_i_change_the_cover_of_the_book
-   and_i_click_the_update_button
-   then_i_should_see_the_book_was_successfully_updated
-   and_i_should_see_the_updated_cover
+  scenario "as an admin allows me to successfully change to cover of the book" do
+    when_i_click_on_the_book_i_want_to_edit
+    and_i_change_the_cover_of_the_book
+    and_i_click_the_update_button
+    then_i_should_see_the_book_was_successfully_updated
+    and_i_should_see_the_updated_cover
   end
 
-  scenario "I am able to successfully change the link to the book" do
+  scenario "as an admin allows me to successfully change the link to the book" do
     when_i_click_on_the_book_i_want_to_edit
     and_i_change_the_link_to_the_book
     and_i_click_the_update_button
@@ -37,6 +39,15 @@ RSpec.feature "Update a book", type: :feature do
   private
   def given_i_want_to_apply_changes_to_a_book
     @book = FactoryBot.create(:book, :with_cover)
+  end
+
+  def and_i_am_an_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+  end
+
+  def and_i_log_in
+    sign_in @user
   end
 
   def when_i_click_on_the_book_i_want_to_edit
