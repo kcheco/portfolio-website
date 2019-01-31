@@ -25,7 +25,7 @@ feature "View home page" do
     and_i_should_see_the_three_most_recent_projects
     and_i_should_see_the_three_most_recent_books_ive_read
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
-    and_i_should_see_a_navbar_as_the_footer
+    and_i_should_not_see_a_navbar_as_the_footer
     and_i_should_see_admin_navbar
   end
 
@@ -95,6 +95,10 @@ feature "View home page" do
 
   def and_i_should_see_a_navbar_as_the_footer
     expect(page).to have_selector(".footer-nav")
+  end
+
+  def and_i_should_not_see_a_navbar_as_the_footer
+    expect(page).to_not have_selector(".footer-nav")
   end
 
   def and_i_should_see_admin_navbar
