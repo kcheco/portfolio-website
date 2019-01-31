@@ -1,5 +1,9 @@
-<footer class="footer-nav navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+<% unless user_signed_in? %>
+
+  <footer class="footer-nav navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Let's Chat</a>
+      <a class="navbar-brand" href="#">Let's Chat</a>
     </div>
-</footer>
+  </footer>
+
+<% end %>
