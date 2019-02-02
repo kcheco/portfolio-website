@@ -87,6 +87,41 @@ RSpec.describe 'Books', type: :request do
     end
   end
 
+  describe 'DELETE /admin/books/:id' do
+    before(:each) do
+      sign_in @user
+      @book = FactoryBot.create(:book, :with_cover)
+      sign_out @user
+    end
+
+    context 'as a signed-in user' do
+      before do
+        sign_in @user
+        delete "/admin/books/#{@book.id}"
+      end
+
+      it 'redirects to the books page' do
+        expect(response.status).to eq 302
+      end
+
+      it 'notifies user book was deleted' do
+        expect(flash[:notice]).to eq "Book was successfully deleted."
+      end
+    end
+
+    context 'as a non-signed-in user' do
+      before { delete "/admin/books/#{@book.id}" }
+
+      it 'redirects to books page' do
+        expect(response.status).to eq 302
+      end
+
+      it 'does not delete the book' do
+        expect(Book.first).to eq @book
+      end
+    end
+  end
+
   private
   def expect_not_authorized_flash_message
     flash_message = "You are not authorized to view admin portal."

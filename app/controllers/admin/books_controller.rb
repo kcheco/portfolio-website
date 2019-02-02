@@ -1,6 +1,6 @@
 module Admin
   class BooksController < ApplicationController
-    before_action :authenticate_user!, only: [ :index, :new, :edit ]
+    before_action :authenticate_user!, only: [ :index, :new, :edit, :destroy ]
     before_action :set_book, only: [ :edit, :update, :destroy ]
 
     # calls index view and displays a list of all books
