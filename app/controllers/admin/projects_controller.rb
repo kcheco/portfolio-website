@@ -1,6 +1,6 @@
 module Admin
   class ProjectsController < ApplicationController
-    before_action :authenticate_user!, only: [ :new ]
+    before_action :authenticate_user!, only: [ :index, :new ]
     before_action :set_project, only: [ :edit, :update, :destroy ]
 
     # calls view to display list of projects

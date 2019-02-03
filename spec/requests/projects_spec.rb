@@ -6,6 +6,31 @@ RSpec.describe 'Projects', type: :request do
                          password: 'testpw123'})
   end
 
+  describe 'GET /admin/projects' do
+    context 'as a signed-in user' do
+      before do
+        sign_in @user
+        get '/admin/projects'
+      end
+
+      it "has a success http status" do
+        expect(response.status).to eq 200
+      end
+    end
+
+    context 'as a non-signed-in user' do
+      before { get '/admin/projects' }
+
+      it "redirects to projects page" do
+        expect(response.status).to eq 302
+      end
+
+      it "displays feedback to non-signed-in user" do
+        expect_not_authorized_flash_message
+      end
+    end
+  end
+
   describe 'GET /admin/projects/new' do
     context 'as a signed-in user' do
       before do
