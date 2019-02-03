@@ -56,6 +56,41 @@ RSpec.describe 'Projects', type: :request do
     end
   end
 
+  describe 'DELETE /admin/projects/:id' do
+    before(:each) do
+      sign_in @user
+      @project = FactoryBot.create(:project, :with_cover)
+      sign_out @user
+    end
+
+    context 'as a signed-in user' do
+      before do
+        sign_in @user
+        delete "/admin/projects/#{@project.id}"
+      end
+
+      it 'redirects to the projects page' do
+        expect(response.status).to eq 302
+      end
+
+      it 'notifies user project was deleted' do
+        expect(flash[:notice]).to eq "Project was successfully deleted."
+      end
+    end
+
+    context 'as a non-signed-in user' do
+      before { delete "/admin/projects/#{@project.id}" }
+
+      it 'redirects to projects page' do
+        expect(response.status).to eq 302
+      end
+
+      it 'does not delete the project' do
+        expect(Project.first).to eq @project
+      end
+    end
+  end
+
   private
   def expect_not_authorized_flash_message
     flash_message = "You are not authorized to view admin portal."
