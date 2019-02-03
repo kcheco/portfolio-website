@@ -56,6 +56,37 @@ RSpec.describe 'Projects', type: :request do
     end
   end
 
+  context 'GET /admin/projects/:id/edit' do
+    before(:each) do
+      sign_in @user
+      @project = FactoryBot.create(:project, :with_cover)
+      sign_out @user
+    end
+
+    context 'as a signed-in user' do
+      before do
+        sign_in @user
+        get "/admin/projects/#{@project.id}/edit"
+      end
+
+      it "has a success http status" do
+        expect(response.status).to eq 200
+      end
+    end
+
+    context 'as a non-signed-in user' do
+      before { get "/admin/projects/#{@project.id}/edit" }
+
+      it "redirects to projects page" do
+        expect(response.status).to eq 302
+      end
+
+      it "displays feedback to non-signed-in user" do
+        expect_not_authorized_flash_message
+      end
+    end
+  end
+
   describe 'DELETE /admin/projects/:id' do
     before(:each) do
       sign_in @user

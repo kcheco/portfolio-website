@@ -51,7 +51,7 @@ feature "Update a book" do
   end
 
   def when_i_click_on_the_book_i_want_to_edit
-    visit "/admin/books"
+    visit "/books"
     page.has_content?("#{@book.title}")
     find(:css, "a[href='/admin/books/#{@book.id}/edit").click
   end

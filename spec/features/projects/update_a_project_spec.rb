@@ -3,9 +3,11 @@ require 'rails_helper'
 feature "Update a project" do
   background do
     given_i_have_a_project_i_want_to_update
+    and_i_am_an_admin
+    and_i_am_signed_in
   end
 
-  scenario "I am able to successfully apply changes" do
+  scenario "as an admin allows me to successfully apply changes" do
     when_i_see_the_project_i_want_to_edit
     and_i_change_the_project_name
     and_i_change_the_link
@@ -13,7 +15,7 @@ feature "Update a project" do
     then_i_should_see_i_successfully_made_changes
   end
 
-  scenario "I am able to successfully change the cover of the project" do
+  scenario "as an admin allows me to successfully change the cover of the project" do
     when_i_see_the_project_i_want_to_edit
     and_i_change_the_cover
     and_i_click_the_update_button
@@ -26,8 +28,17 @@ feature "Update a project" do
     @project = FactoryBot.create(:project, :with_cover)
   end
 
+  def and_i_am_an_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+  end
+
+  def and_i_am_signed_in
+    sign_in @user
+  end
+
   def when_i_see_the_project_i_want_to_edit
-    visit "/admin/projects"
+    visit "/projects"
     page.has_content?("#{@project.name}")
     find(:css, "a[href='/admin/projects/#{@project.id}/edit']").click
   end
