@@ -1,6 +1,6 @@
 module Admin
   class WatchedVideosController < ApplicationController
-    before_action :authenticate_user!, only: [ :new ]
+    before_action :authenticate_user!, only: [ :index, :new, :destroy ]
     before_action :set_watched_video, only: [ :edit, :update, :destroy ]
 
     # calls index view and displays a list of all watched
