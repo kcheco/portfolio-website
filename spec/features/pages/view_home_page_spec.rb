@@ -15,6 +15,7 @@ feature "View home page" do
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
     and_i_should_not_see_admin_navbar
     and_i_should_see_a_navbar_as_the_footer
+    and_i_should_not_see_edit_delete_buttons_for_all_resources
   end
 
   scenario 'as an admin allows for editing content' do
@@ -27,6 +28,7 @@ feature "View home page" do
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
     and_i_should_not_see_a_navbar_as_the_footer
     and_i_should_see_admin_navbar
+    and_i_should_see_edit_delete_buttons_for_all_resources
   end
 
   private
@@ -113,5 +115,15 @@ feature "View home page" do
     expect(page).to_not have_css("a[href='/admin/books']")
     expect(page).to_not have_css("a[href='/admin/watched_videos']")
     expect(page).to_not have_css("a[href='/admin/projects']")
+  end
+
+  def and_i_should_see_edit_delete_buttons_for_all_resources
+    expect(page).to have_css("a[href='/admin/books/#{@book4.id}/edit']")
+    expect(page).to have_css("a[href='/admin/books/#{@book4.id}'][data-method='delete']")
+  end
+
+  def and_i_should_not_see_edit_delete_buttons_for_all_resources
+    expect(page).to_not have_css("a[href='/admin/books/#{@book4.id}/edit']")
+    expect(page).to_not have_css("a[href='/admin/books/#{@book4.id}'][data-method='delete']")
   end
 end
