@@ -1,17 +1,17 @@
-<h1 class="mb-md-3">Edit Watched Video</h2>
+<h1 class="mb-md-3">Editing a project</h1>
 
-<%= form_for(@watched_video) do |f| %>
+<%= form_for(@project, url: admin_project_path(id: @project)) do |f| %>
 
-  <%= display_form_errors_for @watched_video %>
+  <%= display_form_errors_for @project %>
 
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :date_viewed, "Date Viewed" %>
-    <%= f.text_field :date_viewed, class: 'form-control' %>
+    <%= f.label :date_completed, "Date Completed" %>
+    <%= f.text_field :date_completed, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -19,14 +19,16 @@
     <%= f.text_field :link, class: 'form-control' %>
   </div>
 
-  <% if @watched_video.has_image? %>
+  <% if @project.has_image? %>
+
     <div class="form-group">
       <%= f.fields_for :image do |image_form| %>
         <%= image_form.label :source, "Cover" %>
         <%= image_form.text_field :source, class: 'form-control' %>
       <% end %>
-      <%= image_tag "#{@watched_video.image.source}", class: 'mt-md-3' %>
+      <%= image_tag "#{@project.image.source}", class: 'mt-md-3' %>
     </div>
+
   <% end %>
 
   <div>

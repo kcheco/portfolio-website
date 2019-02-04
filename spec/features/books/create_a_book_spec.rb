@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 feature "Creating a book" do
-  scenario "I am able to successfully add a book" do
+  background do
+    given_i_am_an_admin
+    and_i_log_in
+  end
+
+  scenario "as admin enables me to add a book" do
     when_i_want_to_create_a_book
     and_i_set_the_title
     and_i_set_the_date_i_read_the_book
@@ -21,8 +26,17 @@ feature "Creating a book" do
   end
 
   private
+  def given_i_am_an_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+  end
+
+  def and_i_log_in
+    sign_in @user
+  end
+
   def when_i_want_to_create_a_book
-    visit "/books"
+    visit "/admin/books"
     click_link "Add New Book"
   end
 

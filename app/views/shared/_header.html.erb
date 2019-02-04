@@ -1,14 +1,18 @@
 <% if user_signed_in? %>
 
+  <!-- begin header -->
   <header>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light">
       <a class="navbar-brand" href="#">Admin</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark' %></li>
-        </ul>
-      </div>
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item"><%= link_to "Home", root_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Books", admin_books_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "WatchedVideos", admin_watched_videos_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Projects", admin_projects_path, class: 'nav-link' %></li>
+      </ul>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark ml-md-3' %>
     </nav>
   </header>
+  <!--/ end header -->
 
 <% end %>

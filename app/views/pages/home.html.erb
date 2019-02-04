@@ -46,15 +46,17 @@
       <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
         <%= link_to image_tag(project.image.source, alt: "#{project.name}"), project.link, target: '_blank' %>
       </div>
-      <div class="links">
-        <div class="row px-md-3">
-          <p class="text-muted mb-md-2"><%= project.name %></p>
+      <% if user_signed_in? %>
+        <div class="links">
+          <div class="row px-md-3">
+            <p class="text-muted mb-md-2"><%= project.name %></p>
+          </div>  
+          <div class="row px-md-3">
+            <%= link_to "Make Changes", edit_admin_project_path(project), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+            <%= link_to "Remove", admin_project_path(project), method: :delete, data: { confirm: 'Are you sure you no longer want to share this project?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+          </div>
         </div>
-        <div class="row px-md-3">
-          <%= link_to "Make Changes", edit_project_path(project), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
-          <%= link_to "Remove", project_path(project), method: :delete, data: { confirm: 'Are you sure you no longer want to share this project?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
-        </div>
-      </div>
+      <% end %>
     </div>
 
   <% end %>
@@ -86,15 +88,17 @@
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
           <%= link_to image_tag(book.image.source, alt: "#{book.title}"), book.link, target: '_blank' %>
         </div>
-        <div class="links">
-          <div class="row px-md-3">
-            <p class="text-muted mb-md-2"><%= book.title %></p>
+        <% if user_signed_in? %>
+          <div class="links">
+            <div class="row px-md-3">
+              <p class="text-muted mb-md-2"><%= book.title %></p>
+            </div>
+            <div class="row px-md-3">
+              <%= link_to "Make Changes", edit_admin_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+              <%= link_to "Remove", admin_book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+            </div>
           </div>
-          <div class="row px-md-3">
-            <%= link_to "Make Changes", edit_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
-            <%= link_to "Remove", book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
-          </div>
-        </div>
+        <% end %>
       </div>
 
     <% end %>
@@ -126,15 +130,18 @@
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
           <%= link_to image_tag(video.image.source, alt: "#{video.title}"), video.link, target: '_blank' %>
         </div>
-        <div class="links">
-          <div class="row px-md-3">
-            <p class="text-muted mb-md-2"><%= video.title %></p>
+
+        <% if user_signed_in? %>
+          <div class="links">
+            <div class="row px-md-3">
+              <p class="text-muted mb-md-2"><%= video.title %></p>
+            </div>
+            <div class="row px-md-3">
+              <%= link_to "Make Changes", edit_admin_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+              <%= link_to "Remove", admin_watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+            </div>
           </div>
-          <div class="row px-md-3">
-            <%= link_to "Make Changes", edit_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
-            <%= link_to "Remove", watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
-          </div>
-        </div>
+        <% end %>
       </div>
 
     <% end %>

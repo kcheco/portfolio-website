@@ -3,6 +3,8 @@ require 'rails_helper'
 feature "Updating a watched video" do
   background do
     given_i_have_details_of_a_video_i_want_to_change
+    and_i_am_an_admin
+    and_i_am_signed_in
   end
 
   scenario "I am able to successfully make changes to a video I saved as watched" do
@@ -25,10 +27,19 @@ feature "Updating a watched video" do
     @watched_video = FactoryBot.create(:watched_video, :with_cover)
   end
 
+  def and_i_am_an_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+  end
+
+  def and_i_am_signed_in
+    sign_in @user
+  end
+
   def when_i_click_on_the_video_i_want_to_edit
     visit "/watched_videos"
     has_content?("#{@watched_video.title}")
-    find(:css, "a[href='/watched_videos/#{@watched_video.id}/edit']").click
+    find(:css, "a[href='/admin/watched_videos/#{@watched_video.id}/edit']").click
   end
 
   def and_i_set_a_different_date

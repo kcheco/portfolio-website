@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 feature "Creating a watched video" do
+  background do
+    given_i_am_an_admin
+    and_i_log_in
+  end
+
   scenario "I am able to successfully add a dev-related youtube video I watched" do
     when_i_want_to_add_a_video_i_watched
     and_i_set_the_title
@@ -22,8 +27,18 @@ feature "Creating a watched video" do
   end
 
   private
+  def given_i_am_an_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+  end
+
+  def and_i_log_in
+    sign_in @user
+  end
+
   def when_i_want_to_add_a_video_i_watched
-    visit '/watched_videos/new'
+    visit '/watched_videos'
+    click_link "Add New Video"
   end
 
   def and_i_set_the_title

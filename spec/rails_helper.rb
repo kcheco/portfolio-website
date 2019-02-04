@@ -22,7 +22,7 @@ require 'selenium/webdriver'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -86,7 +86,12 @@ RSpec.configure do |config|
     end
   end
   
+  # Include Devise Test Helpers
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  
+  # Include modules from RequestSpecHelper within spec/support
+  config.include RequestSpecHelper::AuthorizationHelpers, type: :request
 
   # The configuration below came from a mix of resources related to
   # running tests using selenium and chrome-driver. Selenium along
@@ -108,10 +113,12 @@ RSpec.configure do |config|
   Capybara.register_driver :headless_chrome do |app|
     Capybara::Selenium::Driver.load_selenium
     browser_options = ::Selenium::WebDriver::Chrome::Options.new
+    client = ::Selenium::WebDriver::Remote::Http::Default.new
     browser_options.args << '--headless'
     browser_options.args << '--disable-gpu'
     browser_options.args << '--no-sandbox'
-    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+    client.read_timeout = 90
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options, http_client: client)
   end
 
   #Capybara.javascript_driver = :headless_chrome

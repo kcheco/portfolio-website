@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 feature "Creating a project" do
+  background do
+    given_i_am_an_admin
+    and_i_log_in
+  end
+
   scenario "I am able to successfully add a project I've worked on" do
     when_i_want_to_add_a_new_project_to_my_list
     and_i_set_the_name
@@ -21,8 +26,18 @@ feature "Creating a project" do
     then_i_should_receive_an_error_for_not_setting_a_cover
   end
 
+  private
+  def given_i_am_an_admin
+    @user = User.create({email: 'checokelvin@gmail.com', 
+                         password: 'testpw123'})
+  end
+
+  def and_i_log_in
+    sign_in @user
+  end
+  
   def when_i_want_to_add_a_new_project_to_my_list
-    visit '/projects'
+    visit '/admin/projects'
     click_link 'Add New Project'
   end
 

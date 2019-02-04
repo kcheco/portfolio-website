@@ -2,11 +2,7 @@
 
   <h3 class="lead text-muted my-md-3">List of books I've read</h3>
 
-  <% if user_signed_in? %>
-    
-    <%= link_to "Add New Book", new_admin_book_path, class: 'btn btn-outline-dark my-md-3' %>
-
-  <% end %>
+  <%= link_to "Add New Book", new_admin_book_path, class: 'btn btn-outline-dark my-md-3' %>
 
   <% @books.in_groups_of(3).each do |group| %>
 
@@ -24,13 +20,10 @@
               <div class="row px-md-3">
                 <p class="text-muted mb-md-2"><%= book.title %></p>
               </div>
-
-              <% if user_signed_in? %>
-                <div class="row px-md-3">
-                  <%= link_to "Make Changes", edit_admin_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
-                  <%= link_to "Remove", admin_book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?'}, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
-                </div>
-              <% end %>
+              <div class="row px-md-3">
+                <%= link_to "Make Changes", edit_admin_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+                <%= link_to "Remove", admin_book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?'}, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+              </div>
             </div>
           </div>
 
