@@ -56,7 +56,7 @@ RSpec.describe 'Projects', type: :request do
     end
   end
 
-  context 'GET /admin/projects/:id/edit' do
+  describe 'GET /admin/projects/:id/edit' do
     before(:each) do
       sign_in @user
       @project = FactoryBot.create(:project, :with_cover)
@@ -120,11 +120,5 @@ RSpec.describe 'Projects', type: :request do
         expect(Project.first).to eq @project
       end
     end
-  end
-
-  private
-  def expect_not_authorized_flash_message
-    flash_message = "You are not authorized to view admin portal."
-    expect(flash[:alert]).to eq flash_message
   end
 end

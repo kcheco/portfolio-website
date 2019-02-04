@@ -56,7 +56,7 @@ RSpec.describe 'Books', type: :request do
     end
   end
 
-  context 'GET /admin/books/:book_id/edit' do
+  describe 'GET /admin/books/:id/edit' do
     before(:each) do
       sign_in @user
       @book = FactoryBot.create(:book, :with_cover)
@@ -120,11 +120,5 @@ RSpec.describe 'Books', type: :request do
         expect(Book.first).to eq @book
       end
     end
-  end
-
-  private
-  def expect_not_authorized_flash_message
-    flash_message = "You are not authorized to view admin portal."
-    expect(flash[:alert]).to eq flash_message
   end
 end
