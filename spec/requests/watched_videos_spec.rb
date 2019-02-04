@@ -56,6 +56,37 @@ RSpec.describe 'WatchedVideos', type: :request do
     end
   end
 
+  describe 'GET /admin/watched_videos/:id/edit' do
+    before(:each) do
+      sign_in @user
+      @watched_video = FactoryBot.create(:watched_video, :with_cover)
+      sign_out @user
+    end
+
+    context 'as a signed-in user' do
+      before do
+        sign_in @user
+        get "/admin/watched_videos/#{@watched_video.id}/edit"
+      end
+
+      it "has a success http status" do
+        expect(response.status).to eq 200
+      end
+    end
+
+    context 'as a non-signed-in user' do
+      before { get "/admin/watched_videos/#{@watched_video.id}/edit" }
+
+      it "redirects to watched_videos page" do
+        expect(response.status).to eq 302
+      end
+
+      it "displays feedback to non-signed-in user" do
+        expect_not_authorized_flash_message
+      end
+    end
+  end
+
   describe 'DELETE /admin/watched_videos/:id' do
     before(:each) do
       sign_in @user
