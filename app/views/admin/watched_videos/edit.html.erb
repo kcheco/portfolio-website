@@ -30,7 +30,8 @@
   <% end %>
 
   <div>
-    <%= f.submit "Apply Changes", data: { disable_with: "Applying changes..."}, class: 'btn btn-primary' %>
+    <%= f.submit "Apply Changes", data: { disable_with: "Applying changes..."}, class: 'btn btn-primary mr-md-2' %>
+    <%= link_to "Back", admin_watched_videos_path, class: 'btn btn-light'%>
   </div>
 
 <% end %>

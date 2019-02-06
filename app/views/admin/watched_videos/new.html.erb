@@ -27,7 +27,8 @@
   <% end %>
 
   <div>
-    <%= f.submit "Add Video", data: { disable_with: "Adding Video..."}, class: 'btn btn-primary' %>
+    <%= f.submit "Add Video", data: { disable_with: "Adding Video..."}, class: 'btn btn-primary mr-md-2' %>
+    <%= link_to "Back", admin_watched_videos_path, class: 'btn btn-light'%>
   </div>
 
 <% end %>
