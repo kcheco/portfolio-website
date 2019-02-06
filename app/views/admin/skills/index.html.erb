@@ -2,6 +2,34 @@
 
   <h3 class="lead text-muted my-md-3">List of Skills</h3>
 
-  <%= link_to "Add New Skill", new_admin_skill_path, class: 'btn btn-outline-dark my-md-3' %>
+  <%= link_to "Add New Skill", new_admin_skill_path, class: 'btn btn-dark my-md-3' %>
 
+  <% if @skills.count > 0 %>
+
+    <div class="row border-bottom">
+      <div class="col h6">
+        Name
+      </div>
+    </div>
+
+    <% @skills.each do |skill| %>
+
+      <div class="row border-bottom">
+        <div class="col">
+          <%= skill.name %>
+        </div>
+      </div>
+
+    <% end %>
+
+  <% else %>
+
+    <div class="row">
+      <div class="col em">
+        <p><em>There are no skills added yet.</em></p>
+      </div>
+    </div>
+
+  <% end %>
+  
 </div>
