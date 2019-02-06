@@ -1,6 +1,6 @@
 module Admin
   class SkillsController < ApplicationController
-    before_action :set_skill, only: [ :edit, :update ]
+    before_action :set_skill, only: [ :edit, :update, :destroy ]
     # calls index view and displays a list of skills
     def index
       @skills = Skill.all
@@ -25,16 +25,29 @@ module Admin
       end
     end
 
+    # calls view to be rendered for editing a skill
     def edit
     end
 
+    # ingests valid parameters and applies changes to a specific skill
     def update
       respond_to do |format|
         if @skill.update(skill_params)
-          format.html { redirect_to admin_skills_path, notice: 'Skill was successfully updated.' }
+          format.html { redirect_to admin_skills_path, 
+                        notice: 'Skill was successfully updated.' }
         else
           format.html { render :edit }
         end
+      end
+    end
+
+    # removes a skill from list
+    def destroy
+      @skill.destroy
+
+      respond_to do |format|
+        format.html { redirect_to admin_skills_path, 
+                      notice: 'Skill was successfully deleted.' }
       end
     end
 
