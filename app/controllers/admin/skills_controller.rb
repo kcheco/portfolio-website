@@ -1,5 +1,6 @@
 module Admin
   class SkillsController < ApplicationController
+    before_action :set_skill, only: [ :edit, :update ]
     # calls index view and displays a list of skills
     def index
       @skills = Skill.all
@@ -24,7 +25,24 @@ module Admin
       end
     end
 
+    def edit
+    end
+
+    def update
+      respond_to do |format|
+        if @skill.update(skill_params)
+          format.html { redirect_to admin_skills_path, notice: 'Skill was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
+      end
+    end
+
     private
+    # identifies a specific skill from id parameter in request
+    def set_skill
+      @skill = Skill.find(params[:id])
+    end
     # specifies valid parameters that may be ingested by
     # the skills resource
     def skill_params

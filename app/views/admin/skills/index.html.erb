@@ -6,7 +6,7 @@
 
   <% if @skills.count > 0 %>
 
-    <div class="row border-bottom">
+    <div class="row p-md-1 border-bottom">
       <div class="col h6">
         Name
       </div>
@@ -14,9 +14,12 @@
 
     <% @skills.each do |skill| %>
 
-      <div class="row border-bottom">
+      <div class="row p-md-1 border-bottom">
         <div class="col">
           <%= skill.name %>
+        </div>
+        <div class="col text-right">
+          <%= link_to "Make Changes", edit_admin_skill_path(skill), class: 'btn btn-outline-secondary btn-sm' %>
         </div>
       </div>
 
