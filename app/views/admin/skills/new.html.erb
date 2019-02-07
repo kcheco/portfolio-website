@@ -1,0 +1,17 @@
+<h1 class="mb-md-3">Add a Skill</h1>
+
+<%= form_for(@skill, url: admin_skills_path) do |f| %>
+
+  <%= display_form_errors_for @skill %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', autofocus: 'true', placeholder: 'Add ...' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Add Skill", class: 'btn btn-primary mr-md-2' %>
+    <%= link_to "Back", admin_skills_path, class: 'btn btn-light'%>
+  </div>
+
+<% end %>

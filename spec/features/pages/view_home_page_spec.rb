@@ -5,6 +5,7 @@ feature "View home page" do
     given_i_have_a_list_of_projects
     and_i_have_a_list_of_books_ive_read
     and_i_have_a_list_of_dev_videos_ive_watched
+    and_i_have_list_of_skills
   end
 
   scenario 'not as an admin does not show admin nav' do
@@ -13,6 +14,7 @@ feature "View home page" do
     and_i_should_see_the_three_most_recent_projects
     and_i_should_see_the_three_most_recent_books_ive_read
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
+    and_i_should_see_all_the_skills_i_have
     and_i_should_not_see_admin_navbar
     and_i_should_see_a_navbar_as_the_footer
     and_i_should_not_see_edit_delete_buttons_for_all_resources
@@ -26,6 +28,7 @@ feature "View home page" do
     and_i_should_see_the_three_most_recent_projects
     and_i_should_see_the_three_most_recent_books_ive_read
     and_i_should_see_the_three_most_recent_dev_videos_ive_watched
+    and_i_should_see_all_the_skills_i_have
     and_i_should_not_see_a_navbar_as_the_footer
     and_i_should_see_admin_navbar
     and_i_should_see_edit_delete_buttons_for_all_resources
@@ -62,6 +65,10 @@ feature "View home page" do
     @watched_video4 = FactoryBot.create(:watched_video, :with_cover, date_viewed: 1.day.ago)
   end
 
+  def and_i_have_list_of_skills
+    @skills = FactoryBot.create_list(:skill, 5)
+  end
+
   def when_i_visit_the_home_page
     visit '/'
   end
@@ -72,6 +79,7 @@ feature "View home page" do
     expect(page).to have_content("Projects")
     expect(page).to have_content("Books I've Read")
     expect(page).to have_content("Videos I've recently watched")
+    expect(page).to have_content("Skills")
   end
 
   def and_i_should_see_the_three_most_recent_projects
@@ -93,6 +101,12 @@ feature "View home page" do
     expect(page).to have_css("img[src='#{@watched_video3.image.source}']")
     expect(page).to have_css("img[src='#{@watched_video2.image.source}']")
     expect(page).to_not have_css("img[src='#{@watched_video1.image.source}']")
+  end
+
+  def and_i_should_see_all_the_skills_i_have
+    @skills.each do |skill|
+      expect(page).to have_content("#{skill.name}")
+    end
   end
 
   def and_i_should_see_a_navbar_as_the_footer
