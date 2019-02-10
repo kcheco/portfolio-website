@@ -166,14 +166,13 @@
 <div class="skills w-100 my-md-3 py-md-3">
 
   <h3 class="lead text-muted">Skills</h3>
-  <div class="d-md-flex w-100 py-md-3">
-    <p class="skill-item">
-
+  <div class="w-100">
+    
     <% @skills.each do |skill| %>
-      <%= "#{skill.name} " %>
+      <span class="skill-item mr-md-3">
+        <%= "#{skill.name_in_dash_case}" %>
+      </span>
     <% end %>
-
-    </p>
 
   </div>
 
