@@ -85,6 +85,17 @@ RSpec.describe 'Projects', type: :request do
         expect_not_authorized_flash_message
       end
     end
+
+    context 'with an invalid project id param' do
+      before do
+        sign_in @user
+        get "/admin/projects/xxx/edit"
+      end
+
+      it "has a 404 client error" do
+        expect(response.status).to eq 404
+      end
+    end
   end
 
   describe 'DELETE /admin/projects/:id' do
