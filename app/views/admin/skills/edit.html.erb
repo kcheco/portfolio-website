@@ -1,17 +1,19 @@
-<h1 class="mb-md-3">Edit Skill</h2>
+<div class="py-md-3">
+  <h1 class="mb-md-3">Edit Skill</h2>
 
-<%= form_for(@skill, url: admin_skill_path(@skill)) do |f| %>
+  <%= form_for(@skill, url: admin_skill_path(@skill)) do |f| %>
 
-  <%= display_form_errors_for @skill %>
+    <%= display_form_errors_for @skill %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.submit "Apply Changes", class: 'btn btn-primary mr-md-2' %>
-    <%= link_to "Back", admin_skills_path, class: 'btn btn-light'%>
-  </div>
+    <div class="form-group">
+      <%= f.submit "Apply Changes", class: 'btn btn-primary mr-md-2' %>
+      <%= link_to "Back", admin_skills_path, class: 'btn btn-light'%>
+    </div>
 
-<% end %>
+  <% end %>
+</div>

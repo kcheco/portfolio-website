@@ -1,39 +1,41 @@
-<h1 class="mb-md-3">Editing a project</h1>
+<div class="py-md-3">
+  <h1 class="mb-md-3">Editing a project</h1>
 
-<%= form_for(@project, url: admin_project_path(id: @project)) do |f| %>
+  <%= form_for(@project, url: admin_project_path(id: @project)) do |f| %>
 
-  <%= display_form_errors_for @project %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :date_completed, "Date Completed" %>
-    <%= f.text_field :date_completed, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :link %>
-    <%= f.text_field :link, class: 'form-control' %>
-  </div>
-
-  <% if @project.has_image? %>
+    <%= display_form_errors_for @project %>
 
     <div class="form-group">
-      <%= f.fields_for :image do |image_form| %>
-        <%= image_form.label :source, "Cover" %>
-        <%= image_form.text_field :source, class: 'form-control' %>
-      <% end %>
-      <%= image_tag "#{@project.image.source}", class: 'mt-md-3' %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :date_completed, "Date Completed" %>
+      <%= f.text_field :date_completed, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: 'form-control' %>
+    </div>
+
+    <% if @project.has_image? %>
+
+      <div class="form-group">
+        <%= f.fields_for :image do |image_form| %>
+          <%= image_form.label :source, "Cover" %>
+          <%= image_form.text_field :source, class: 'form-control' %>
+        <% end %>
+        <%= image_tag "#{@project.image.source}", class: 'mt-md-3' %>
+      </div>
+
+    <% end %>
+
+    <div>
+      <%= f.submit "Apply Changes", data: { disable_with: "Applying changes..."}, class: 'btn btn-primary mr-md-2' %>
+      <%= link_to "Back", admin_projects_path, class: 'btn btn-light'%>
     </div>
 
   <% end %>
-
-  <div>
-    <%= f.submit "Apply Changes", data: { disable_with: "Applying changes..."}, class: 'btn btn-primary mr-md-2' %>
-    <%= link_to "Back", admin_projects_path, class: 'btn btn-light'%>
-  </div>
-
-<% end %>
+</div>
