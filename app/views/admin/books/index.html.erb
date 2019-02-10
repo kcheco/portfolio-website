@@ -1,8 +1,8 @@
 <div class="w-100 my-md-3 py-md-3">
 
-  <h3 class="lead text-muted my-md-3">List of books I've read</h3>
+  <h3 class="text-muted my-md-3">List of books I've read</h3>
 
-  <%= link_to "Add New Book", new_admin_book_path, class: 'btn btn-outline-dark my-md-3' %>
+  <%= link_to "Add New Book", new_admin_book_path, class: 'btn btn-dark my-md-3' %>
 
   <% @books.in_groups_of(3).each do |group| %>
 
