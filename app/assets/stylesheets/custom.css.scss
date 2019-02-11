@@ -1,8 +1,14 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body, html {
   padding-bottom: 60px;
   height: 100%;
+}
+
+.fa, .fas, .far, .fal, .fab {
+  font-size: 1.25rem !important;
 }
 
 .rounded-corners {

@@ -43,6 +43,9 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 # User managment, authentication, and authorization
 gem 'devise', '~> 4.5'
 
+# Font Awesome for some cool vector icons
+gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
