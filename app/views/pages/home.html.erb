@@ -44,7 +44,7 @@
 
     <div class="col-md-4 pr-md-4 pl-md-0 list-item project">
       <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-        <%= link_to image_tag(project.image.source, alt: "#{project.name}"), project.link, target: '_blank' %>
+        <%= link_to image_tag(project.image.source, alt: "#{project.name}", title: "#{project.name}"), project.link, target: '_blank' %>
       </div>
       <% if user_signed_in? %>
         <div class="links">
@@ -86,7 +86,7 @@
 
       <div class="col-md-4 pr-md-4 pl-md-0 list-item book">
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= link_to image_tag(book.image.source, alt: "#{book.title}"), book.link, target: '_blank' %>
+          <%= link_to image_tag(book.image.source, alt: "#{book.title}", title: "#{book.title}"), book.link, target: '_blank' %>
         </div>
         <% if user_signed_in? %>
           <div class="links">
@@ -128,7 +128,7 @@
 
       <div class="col-md-4 pr-md-4 pl-md-0 list-item video">
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= link_to image_tag(video.image.source, alt: "#{video.title}"), video.link, target: '_blank' %>
+          <%= link_to image_tag(video.image.source, alt: "#{video.title}", title: "#{video.title}"), video.link, target: '_blank' %>
         </div>
 
         <% if user_signed_in? %>
