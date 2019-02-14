@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require jquery-ui/widgets/datepicker
+//= require jquery-ui
+//= require html5sortable
 // require turbolinks
 //= require_tree .
 

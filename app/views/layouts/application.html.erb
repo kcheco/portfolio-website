@@ -4,7 +4,7 @@
     <title>Full Stack Engineer | NYC | Kelvin Checo</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body class="<%= current_page?(controller:'devise/sessions', action: 'new') ? 'text-center login-bg bg-light' : '' %>">

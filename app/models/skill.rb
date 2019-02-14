@@ -6,4 +6,8 @@ class Skill < ApplicationRecord
   def name_in_dash_case
     name.gsub(/\s/, '-').downcase
   end
+
+  def self.by_orderno
+    order("orderno ASC")
+  end
 end
