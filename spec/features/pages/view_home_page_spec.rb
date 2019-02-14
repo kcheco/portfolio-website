@@ -105,7 +105,7 @@ feature "View home page" do
 
   def and_i_should_see_all_the_skills_i_have
     @skills.each do |skill|
-      expect(page).to have_content("#{skill.name}")
+      expect(page).to have_content("#{skill.name.gsub(/\s/, "-").downcase }")
     end
   end
 
