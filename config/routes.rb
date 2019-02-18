@@ -22,9 +22,11 @@ Rails.application.routes.draw do
   resources :watched_videos, only: [ :index ]
   resources :projects, only: [ :index ]
 
-  match '/404',   to: 'errors#not_found',     via: :all
-  match '/500',   to: 'errors#server_error',  via: :all
-  match '*path',  to: 'errors#not_found',     via: :all
+  get '/contact_me',  to: 'email_messages#new',   as: 'contact'
+
+  match '/404',       to: 'errors#not_found',     via: :all
+  match '/500',       to: 'errors#server_error',  via: :all
+  match '*path',      to: 'errors#not_found',     via: :all
 
   root to: 'pages#home'
 end
