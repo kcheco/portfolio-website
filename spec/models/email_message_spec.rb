@@ -27,6 +27,15 @@ RSpec.describe 'EmailMessage', type: :model do
 
   it { should validate_length_of(:brief_msg).is_at_least(1).is_at_most(255) }
 
+  it { should allow_values('test@domain.com', 'hello@domain.dev').for(:email) }
+  
+  it { should_not allow_value("test@domain", " ").for(:email) }
+  
+  it { should validate_numericality_of(:phone).only_integer }
+
+  it { should validate_length_of(:phone).is_at_least(10).with_message("must have at least 10 digits") }
+  it { should validate_length_of(:phone).is_at_most(11).with_message("can't be more than 11 digits") }
+
   context 'with valid attribute values' do
     before do
       attr_values = {
@@ -54,6 +63,42 @@ RSpec.describe 'EmailMessage', type: :model do
         preferred_method: '',
         reason: '',
         brief_msg: ''
+      }
+      @msg = EmailMessage.new attr_values
+    end
+
+    it 'is not valid' do
+      expect(@msg).to_not be_valid
+    end
+  end
+
+  context 'with invalid email format' do
+    before do
+      attr_values = {
+        name: 'Ip Man',
+        email: 'test@email',
+        phone: '5555555555',
+        preferred_method: 'email',
+        reason: 'general_question',
+        brief_msg: 'This is a test.'
+      }
+      @msg = EmailMessage.new attr_values
+    end
+
+    it 'is not valid' do
+      expect(@msg).to_not be_valid
+    end
+  end
+
+  context 'with invalid email format' do
+    before do
+      attr_values = {
+        name: 'Ip Man',
+        email: 'test@email.com',
+        phone: '555555',
+        preferred_method: 'email',
+        reason: 'general_question',
+        brief_msg: 'This is a test.'
       }
       @msg = EmailMessage.new attr_values
     end

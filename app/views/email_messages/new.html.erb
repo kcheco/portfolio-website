@@ -8,7 +8,9 @@
 
 <div class="row">
   <div class="col-md-8">
-    <%= form_for @contact, url: contact_path, method: "post" do |f| %>
+    <%= form_for @message, url: email_message_path do |f| %>
+
+    <%= display_form_errors_for @message %>
 
       <div class="form-row">
         <div class="form-group col">
@@ -16,8 +18,8 @@
           <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Enter your full name' %>
         </div>
         <div class="form-group col">
-          <%= f.label :company_name, "Company name" %><sup class="text-muted ml-md-1">(optional)</sup>
-          <%= f.text_field :name, class: 'form-control', placeholder: 'Enter the name of the company or organization' %>
+          <%= f.label :company, "Company name" %><sup class="text-muted ml-md-1">(optional)</sup>
+          <%= f.text_field :company, class: 'form-control', placeholder: 'Enter the name of the company or organization' %>
         </div>
       </div>
 

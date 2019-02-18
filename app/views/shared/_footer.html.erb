@@ -3,7 +3,11 @@
   <!-- begin .footer-nav -->
   <footer class="footer-nav navbar fixed-bottom navbar-expand navbar-dark bg-dark">
     <div class="container">
-      <a class="nav-link text-light" href="#">Work with me</a>
+      <% unless current_page?(controller: 'email_messages', action: 'new') %>
+        <%= link_to 'Work with me', new_email_message_path, class: 'nav-link contact-link text-light' %>
+      <% else %>
+        <%= link_to 'Home', root_path, class: 'nav-link contact-link text-light' %>
+      <% end %>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
         <li class="nav-item">
           <a href="https://github.com/kcheco" class="nav-link" target="_blank"><%= icon 'fab', "github" %></a>
