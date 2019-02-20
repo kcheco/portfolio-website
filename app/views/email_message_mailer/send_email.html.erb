@@ -1,0 +1,17 @@
+<h1><%= @message.reason %> Email from kelvin_checo.dev</h1>
+
+<p>Hello, I'm <%= @message.name %>.</p>
+
+<% unless @message.company.nil? %>
+  <p>I work with <%= @message.company %></p>
+<% end %>
+
+<p>My email is <%= @message.email %> and my number is <%= @message.phone %>.</p>
+
+<p>The best was to contact me is by <%= @message.preferred_method %>.</p>
+
+<p>Here is more information about the reason I am reaching out to you:</p>
+<p><%= @message.brief_msg %></p>
+
+
+

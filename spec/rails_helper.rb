@@ -93,6 +93,17 @@ RSpec.configure do |config|
   # Include modules from RequestSpecHelper within spec/support
   config.include RequestSpecHelper::AuthorizationHelpers, type: :request
 
+  # configure ActionMailer to not send emails
+  config.before(:each) do
+    ActionMailer::Base.delivery_method = :test
+    ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.deliveries = []
+  end
+  
+  config.after(:each) do
+    ActionMailer::Base.deliveries.clear
+  end
+
   # The configuration below came from a mix of resources related to
   # running tests using selenium and chrome-driver. Selenium along
   # with chrome-driver opens up a chrome window and performs test.
