@@ -1,17 +1,45 @@
-<h1><%= @message.reason %> Email from kelvin_checo.dev</h1>
+<table border="0" cellpadding="0" cellspacing="0" class="email-body">
+  <tr>
+    <td>
+    <td class="container">
+      <div class="content">
+        <table class="main" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <h1><%= EmailMessage::REASONS[:"#{@message.reason}"] %> email from kelvin-checo.dev</h1>
 
-<p>Hello, I'm <%= @message.name %>.</p>
+              <div class="short-seperator"></div>
 
-<% unless @message.company.nil? %>
-  <p>I work with <%= @message.company %></p>
-<% end %>
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <p>Hello, I'm <span class="message-field"><%= @message.name %></span>.</p>
 
-<p>My email is <%= @message.email %> and my number is <%= @message.phone %>.</p>
+                    <% unless @message.company.nil? %>
+                      <p>I work with <span class="message-field"><%= @message.company %></span>.</p>
+                    <% end %>
 
-<p>The best was to contact me is by <%= @message.preferred_method %>.</p>
+                    <p>My email is <span class="message-field"><%= @message.email %></span> and my number is <span class="message-field"><%= @message.phone %></span>.</p>
 
-<p>Here is more information about the reason I am reaching out to you:</p>
-<p><%= @message.brief_msg %></p>
+                    <p>The best way to contact me is by <span class="message-field"><%= @message.preferred_method %></span>.</p>
 
-
-
+                    <p>Here is more information about the reason I am reaching out to you:</p>
+                    <p><span class="message-field"><%= @message.brief_msg %></span></p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <div class="footer">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </td>
+    </td>
+  </tr>
+</table>
