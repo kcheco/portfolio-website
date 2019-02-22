@@ -33,4 +33,4 @@ en:
   email_message_mailer:
     send_email:
       admin_email: "checokelvin@gmail.com"
-      subject: 'Message from kelvin_checo.dev'
+      subject: 'Message from kelvin-checo.dev'

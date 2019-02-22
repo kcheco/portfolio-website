@@ -13,7 +13,7 @@ class EmailMessagePreview < ActionMailer::Preview
       brief_msg: 'What stack did you use?'
     })
 
-    EmailMessageMailer.send_email message
+    EmailMessageMailer.with(message: message).send_email
   end
 
 end

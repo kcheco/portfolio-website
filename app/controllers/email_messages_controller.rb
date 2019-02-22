@@ -11,6 +11,7 @@ class EmailMessagesController < ApplicationController
 
     respond_to do |format|
       if @message.valid?
+        EmailMessageMailer.with(message: @message).send_email.deliver_now
         format.html { redirect_to new_email_message_path, 
                       notice: 'Your message was successfully sent.'}
       else

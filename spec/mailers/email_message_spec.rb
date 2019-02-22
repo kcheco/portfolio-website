@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe EmailMessageMailer, type: :mailer do
-  describe ".send_email(message)" do
+  describe ".send_email" do
     before do
       @message = EmailMessage.new ({
         name: 'John Doe',
@@ -11,7 +11,7 @@ RSpec.describe EmailMessageMailer, type: :mailer do
         reason: 'general_question',
         brief_msg: 'What stack did you use?'
       })
-      @email = EmailMessageMailer.send_email(@message)
+      @email = EmailMessageMailer.with(message: @message).send_email
     end
 
     it "delivers the email" do
@@ -20,7 +20,7 @@ RSpec.describe EmailMessageMailer, type: :mailer do
     end
 
     it "renders the subject in the headers" do
-      expect(@email.subject).to eq("Message from kelvin_checo.dev")
+      expect(@email.subject).to eq("Message from kelvin-checo.dev")
     end
 
     it "renders the recipient's email in the headers" do
