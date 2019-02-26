@@ -34,9 +34,9 @@ body, html {
   height: 12rem;
 }
 
-.list-item > div.rounded-corners > img {
+.list-item > div.rounded-corners img {
   position: absolute;
-  top: -20%;
+  width: 100%;
 }
 .links {
   text-align: center;
@@ -55,4 +55,8 @@ body, html {
 
 .footer-nav .contact-link {
   font-weight: 700;
+}
+
+.form-group img {
+  max-width: 100%;
 }

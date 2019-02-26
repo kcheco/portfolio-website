@@ -2,7 +2,7 @@
 
   <h3 class="text-muted my-md-3">List of Projects</h3>
 
-  <%= link_to "Add New Project", new_admin_project_path, class: 'btn btn-dark my-md-3' %>
+  <%= link_to icon("fas", "plus-circle", "Add New Project"), new_admin_project_path, class: 'btn btn-dark my-md-3' %>
 
   <% @projects.in_groups_of(3).each do |group| %>
 
