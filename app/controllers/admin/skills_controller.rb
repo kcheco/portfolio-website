@@ -1,11 +1,19 @@
 module Admin
   class SkillsController < ApplicationController
-    before_action :authenticate_user!, only: [ :index, :new, :edit, :destroy ]
+    before_action :authenticate_user!, only: [ :index, :sort, :new, :edit, :destroy ]
     before_action :set_skill, only: [ :edit, :update, :destroy ]
 
     # calls index view and displays a list of skills
     def index
-      @skills = Skill.all
+      @skills = Skill.by_orderno
+    end
+
+    # accepts list of skills and applies changes to orderno of
+    # skill in the request that has been modified
+    def sort
+      params[:skill].each do |key, value|
+        Skill.find(value[:id]).update!(orderno: value[:orderno])
+      end
     end
 
     # calls view to be rendered to add a new skill

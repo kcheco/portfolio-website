@@ -1,0 +1,12 @@
+Hello, I'm <%= @message.name %>.
+
+<% unless @message.company.nil? %>
+  I work with <%= @message.company %>.
+<% end %>
+
+My email is <%= @message.email %> and my number is <%= @message.phone %>.
+
+The best way to contact me is by <%= @message.preferred_method %>.
+
+Here is more information about the reason I am reaching out to you:
+<%= @message.brief_msg %>

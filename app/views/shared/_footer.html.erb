@@ -1,9 +1,28 @@
 <% unless user_signed_in? %>
 
   <!-- begin .footer-nav -->
-  <footer class="footer-nav navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  <footer class="footer-nav navbar fixed-bottom navbar-expand navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Let's Chat</a>
+      <% unless current_page?(controller: 'email_messages', action: 'new') %>
+        <%= link_to 'Work with me', new_email_message_path, class: 'nav-link contact-link text-light' %>
+      <% else %>
+        <%= link_to 'Home', root_path, class: 'nav-link contact-link text-light' %>
+      <% end %>
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a href="https://github.com/kcheco" class="nav-link" target="_blank"><%= icon 'fab', "github" %></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://linkedin.com/in/kelvincheco25" class="nav-link" target="_blank"><%= icon 'fab', 'linkedin' %></a>
+        </li>        
+        <li class="nav-item">
+          <a href="https://instagram.com/kelvin.checo" class="nav-link" target="_blank"><%= icon 'fab', 'instagram' %></a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:checokelvin@gmail.com" class="nav-link" target="_blank"><%= icon 'far', 'envelope' %></a>
+        </li>
+      </ul>
+      <span class="navbar-text ml-md-3">&copy; All rights reserved.</span>
     </div>
   </footer>
   <!--/ end .footer-nav -->

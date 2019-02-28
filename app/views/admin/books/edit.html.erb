@@ -1,36 +1,38 @@
-<h1 class="mb-md-3">Edit Book</h1>
+<div class="py-md-3">
+  <h1 class="mb-md-3">Edit Book</h1>
 
-<%= form_for(@book_item, url: admin_book_path(id: @book_item)) do |f| %>
+  <%= form_for(@book_item, url: admin_book_path(id: @book_item)) do |f| %>
 
-  <%= display_form_errors_for @book_item %>
+    <%= display_form_errors_for @book_item %>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :date_read, "Date Read" %>
-    <%= f.text_field :date_read, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :link %>
-    <%= f.text_field :link, class: 'form-control' %>
-  </div>
-
-  <% if @book_item.has_image? %>
     <div class="form-group">
-      <%= f.fields_for :image do |image_form| %>
-        <%= image_form.label :source, "Cover" %>
-        <%= image_form.text_field :source, class: 'form-control' %>
-      <% end %>
-      <%= image_tag "#{@book_item.image.source}", class: 'mt-md-3' %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :date_read, "Date Read" %>
+      <%= f.text_field :date_read, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: 'form-control' %>
+    </div>
+
+    <% if @book_item.has_image? %>
+      <div class="form-group">
+        <%= f.fields_for :image do |image_form| %>
+          <%= image_form.label :source, "Cover" %>
+          <%= image_form.text_field :source, class: 'form-control' %>
+        <% end %>
+        <%= image_tag "#{@book_item.image.source}", class: 'mt-md-3' %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.submit "Apply Changes", data: {disable_with: 'Applying changes...'}, class: 'btn btn-primary mr-md-2' %>
+      <%= link_to "Back", admin_books_path, class: 'btn btn-light'%>
     </div>
   <% end %>
-
-  <div>
-    <%= f.submit "Apply Changes", data: {disable_with: 'Applying changes...'}, class: 'btn btn-primary mr-md-2' %>
-    <%= link_to "Back", admin_books_path, class: 'btn btn-light'%>
-  </div>
-<% end %>
+</div>

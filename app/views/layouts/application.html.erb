@@ -4,8 +4,7 @@
     <title>Full Stack Engineer | NYC | Kelvin Checo</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body class="<%= current_page?(controller:'devise/sessions', action: 'new') ? 'text-center login-bg bg-light' : '' %>">
@@ -28,6 +27,9 @@
     <!--/ end .container -->
 
     <%= render 'shared/footer' unless current_page?(controller: 'devise/sessions', action: 'new') %>
+
+    <!-- load js files -->
+    <%= javascript_include_tag 'application' %>
 
   </body>
 </html>

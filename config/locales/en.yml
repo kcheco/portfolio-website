@@ -30,4 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  email_message_mailer:
+    send_email:
+      admin_email: "checokelvin@gmail.com"
+      subject: 'Message from kelvin-checo.dev'

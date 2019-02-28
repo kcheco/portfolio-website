@@ -1,34 +1,36 @@
-<h1 class="mb-md-3">Add a book you've read</h1>
+<div class="py-md-3">
+  <h1 class="mb-md-3">Add a book you've read</h1>
 
-<%= form_for(@book_item.with_no_cover, url: admin_books_path) do |f| %>
+  <%= form_for(@book_item.with_no_cover, url: admin_books_path) do |f| %>
 
-  <%= display_form_errors_for @book_item %>
+    <%= display_form_errors_for @book_item %>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', autofocus: 'true', placeholder: 'Enter the title' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', autofocus: true, placeholder: 'Enter the title' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :date_read, "Date Read" %>
-    <%= f.text_field :date_read, class: 'form-control', placeholder: 'Enter date (yyyy-mm-dd)' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :date_read, "Date Read" %>
+      <%= f.text_field :date_read, class: 'form-control', placeholder: 'Enter date (yyyy-mm-dd)' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :link %>
-    <%= f.text_field :link, class: 'form-control', placeholder: 'Enter the url about the book'%>
-  </div>
+    <div class="form-group">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: 'form-control', placeholder: 'Enter the url about the book'%>
+    </div>
 
-  <div class="form-group">
-    <%= f.fields_for :image do |image_form| %>
-      <%= image_form.label :source, "Cover" %>
-      <%= image_form.text_field :source, class: 'form-control', placeholder: 'Enter url for image' %>
-    <% end %>
-  </div>
+    <div class="form-group">
+      <%= f.fields_for :image do |image_form| %>
+        <%= image_form.label :source, "Cover" %>
+        <%= image_form.text_field :source, class: 'form-control', placeholder: 'Enter url for image' %>
+      <% end %>
+    </div>
 
-  <div>
-    <%= f.submit "Add Book", data: { disable_with: "Adding Book..."}, class: 'btn btn-primary mr-md-2' %>
-    <%= link_to "Back", admin_books_path, class: 'btn btn-light'%>
-  </div>
+    <div>
+      <%= f.submit "Add Book", data: { disable_with: "Adding Book..."}, class: 'btn btn-primary mr-md-2' %>
+      <%= link_to "Back", admin_books_path, class: 'btn btn-light'%>
+    </div>
 
-<% end %>
+  <% end %>
+</div>

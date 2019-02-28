@@ -13,16 +13,21 @@ Rails.application.routes.draw do
     resources :books, only: [ :new, :create, :edit, :update, :index, :destroy ]
     resources :watched_videos, only: [ :new, :create, :edit, :update, :index, :destroy ]
     resources :projects, only: [ :index, :new, :create, :edit, :update, :destroy ]
-    resources :skills, only: [ :index, :new, :create, :edit, :update, :destroy ]
+    resources :skills, only: [ :index, :new, :create, :edit, :update, :destroy ] do
+      put :sort, on: :collection
+    end
   end
 
   resources :books, only: [ :index ]
   resources :watched_videos, only: [ :index ]
   resources :projects, only: [ :index ]
 
-  match '/404',   to: 'errors#not_found',     via: :all
-  match '/500',   to: 'errors#server_error',  via: :all
-  match '*path',  to: 'errors#not_found',     via: :all
+  get  '/contact_me',  to: 'email_messages#new',    as: 'new_email_message'
+  post '/contact_me',  to: 'email_messages#create', as: 'email_message'
+
+  match '/404',       to: 'errors#not_found',       via: :all
+  match '/500',       to: 'errors#server_error',    via: :all
+  match '*path',      to: 'errors#not_found',     via: :all
 
   root to: 'pages#home'
 end

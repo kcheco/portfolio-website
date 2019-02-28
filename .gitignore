@@ -23,3 +23,8 @@
 /db/schema.rb
 
 .vscode/
+
+*.DS_Store
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

@@ -2,7 +2,7 @@
 <div class="profile d-md-flex w-100 my-md-3 pl-md-3">
 
   <div class="w-25 mr-md-3">
-    <img class="img-fluid shadow-sm rounded-corners" src="http://checodesigns.com/resume/images/profile.png">
+    <img class="img-fluid shadow-sm rounded-corners" src="<%= image_path('profile-image.png') %>">
   </div>
 
   <div class="w-75 mr-md-3 px-5 px-md-5">
@@ -10,7 +10,7 @@
     <h1 class="display-4 text-muted">A fullstack engineer</h1>
     <p class="lead text-muted">New York, NY</p>
     <div class="cta my-md-3">
-      <a class="bg-primary btn-lg btn shadow text-white px-md-4 py-md-2" href="#">Contact Me</a>
+      <%= link_to "Contact Me", new_email_message_path, class: 'bg-primary btn-lg btn shadow text-white px-md-4 py-md-2' %>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
 
     <div class="col-md-4 pr-md-4 pl-md-0 list-item project">
       <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-        <%= link_to image_tag(project.image.source, alt: "#{project.name}"), project.link, target: '_blank' %>
+        <%= link_to image_tag(project.image.source, alt: "#{project.name}", title: "#{project.name}"), project.link, target: '_blank' %>
       </div>
       <% if user_signed_in? %>
         <div class="links">
@@ -86,7 +86,7 @@
 
       <div class="col-md-4 pr-md-4 pl-md-0 list-item book">
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= link_to image_tag(book.image.source, alt: "#{book.title}"), book.link, target: '_blank' %>
+          <%= link_to image_tag(book.image.source, alt: "#{book.title}", title: "#{book.title}"), book.link, target: '_blank' %>
         </div>
         <% if user_signed_in? %>
           <div class="links">
@@ -128,7 +128,7 @@
 
       <div class="col-md-4 pr-md-4 pl-md-0 list-item video">
         <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-          <%= link_to image_tag(video.image.source, alt: "#{video.title}"), video.link, target: '_blank' %>
+          <%= link_to image_tag(video.image.source, alt: "#{video.title}", title: "#{video.title}"), video.link, target: '_blank' %>
         </div>
 
         <% if user_signed_in? %>
@@ -166,14 +166,13 @@
 <div class="skills w-100 my-md-3 py-md-3">
 
   <h3 class="lead text-muted">Skills</h3>
-  <div class="d-md-flex w-100 py-md-3">
-    <p class="skill-item">
-
+  <div class="w-100">
+    
     <% @skills.each do |skill| %>
-      <%= "#{skill.name} " %>
+      <span class="skill-item mr-md-3">
+        <%= "#{skill.name_in_dash_case}" %>
+      </span>
     <% end %>
-
-    </p>
 
   </div>
 

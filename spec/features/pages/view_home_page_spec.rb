@@ -86,26 +86,26 @@ feature "View home page" do
     expect(page).to have_css("img[src='#{@project4.image.source}']")
     expect(page).to have_css("img[src='#{@project3.image.source}']")
     expect(page).to have_css("img[src='#{@project2.image.source}']")
-    expect(page).to_not have_css("img[src='#{@project1.image.source}']")
+    expect(page).to_not have_content("#{@project1.name}")
   end
 
   def and_i_should_see_the_three_most_recent_books_ive_read
     expect(page).to have_css("img[src='#{@book4.image.source}']")
     expect(page).to have_css("img[src='#{@book3.image.source}']")
     expect(page).to have_css("img[src='#{@book2.image.source}']")
-    expect(page).to_not have_css("img[src='#{@book1.image.source}']")
+    expect(page).to_not have_content("#{@book1.title}")
   end
 
   def and_i_should_see_the_three_most_recent_dev_videos_ive_watched
     expect(page).to have_css("img[src='#{@watched_video4.image.source}']")
     expect(page).to have_css("img[src='#{@watched_video3.image.source}']")
     expect(page).to have_css("img[src='#{@watched_video2.image.source}']")
-    expect(page).to_not have_css("img[src='#{@watched_video1.image.source}']")
+    expect(page).to_not have_content("#{@watched_video1.title}")
   end
 
   def and_i_should_see_all_the_skills_i_have
     @skills.each do |skill|
-      expect(page).to have_content("#{skill.name}")
+      expect(page).to have_content("#{skill.name.gsub(/\s/, "-").downcase }")
     end
   end
 
