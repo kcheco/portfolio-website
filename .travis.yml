@@ -4,6 +4,8 @@ rvm:
   2.4.1
 services:
   postgresql
+addons:
+  chrome: stable
 before_script:
   - bundle exec rake db:create
 script:
