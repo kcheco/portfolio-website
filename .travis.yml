@@ -1,20 +1,18 @@
 language: ruby
 cache: bundler
-rvm:
-  2.4.1
-services:
-  postgresql
+rvm: 2.4.1
+services: postgresql
 addons:
   chrome: stable
 before_script:
-  - bundle exec rake db:create
+- bundle exec rake db:create
 script:
-  - bin/rake db:migrate RAILS_ENV=test
-  - bin/rake
+- bin/rake db:migrate RAILS_ENV=test
+- bin/rake
 deploy:
   provider: heroku
   api_key:
-    secure: OA3YC6UyoTLKQg4vj7dD0yahT0xzSBjBXVsFwFque+h5JcukjVwcA2tHzOWS6oUzK0xM3/UX3MOpXUzg/48w6SdY2MHOFibf039eB1dHdOScxZOJNXXTJk4G734yJWvy+cDjPY4MwmaLwDvKq4KiZgyF6iMv8OK3xwdNpbImRs2aJD2AeFV2rdlQgmjpgB88qFLmtGPyNMO3bCA3VP0CL9zE3kYBsihkhrIfnrh7Re9g504E925TltSX4lktjzjl0TCz+Mc3st7EH6qfHOUtXcK1bmV+poXm8OzQWwlCfWpvVeqHgH9tSEd8DGxwzofiFDX/FKi/dqyDA8muc/s9NhMVuCpL0IPioUqbsskfrg0NTcuNCVCpgj0x3rTXDnX05fOgyosLHlK+5yv8OJuIOq7CXc/wwwo8KvhVoqaoSCDt2i/1k2EJcBAnUON/whMBCXptN4EEJ9bhoWxs4Ca9vwIZVx174hcE4byuiTcpKhKZ9EwRpCQoBs9cZCoooMfKg5QHhfaII+ws/hiQUf3iT/B+RwOh1E7te3Mlio+1AnhTOeWqgE8TqPO/DB8RRdx7fccH0cWHIyXFDLfdAqeTvol1daOoQ3x0AEww2u+BNKci1SAgGNMIv6ZNxqWZie7LpgV4xP+PsQ2DZ6qWoTmGW3SJAWssTGjVRzBCjRVu8qM=
+    secure: HEZqOnYZHEUnGycV/ocbZWL2JUh9T6NXw5RSvnbxBwIcwp3v8xQTVOi4+KjBnvhUZW2FSgEu+k8t4cAlBeoU4RyHIVDKh10EO7mPgNonfAXqKsNeeJU8iaux0e2P1OS/VDcDJQucejtc9yvy/deJO5Xv44+A+y9E5HwCnEfZYn66I3RXzzqNaL0DDUGGzBxrJXJ0ImebsVppxZ7rHMUrYp2Ai1x9c0Xie3F/yX92bOfpJdeuBaWvJxHm0S7OIPoCrcZuNRsFR7jtS13L5QIShf/92oOosMEPDJgkS3WXxw6kRwVec7Li+TTFQjEyAP79+nr86c5DsoOPSbtFwX6AA8v6nMmV13sZbbgcpnMTq10yiviDNYmVQREGRGPxxChX5AFuatr3s1HHzNmDt5Nt206uhlLuFcudxiR885f+nX9PuHdlNb7AZNqku4WKKPC0emkuyUpbS+catUlzOsoqOp+E5q5K6ngwfBLDuaKJ/yecInxL5pKUpoYYHWCHefK9CoXQGzw+B2rsBc+fKwtcGJLltWViF9x2fOBEb76eZavS2vZdSOf7UYsXB3KS8ZMXuwZqcKsXJnX9gBtb+PAFaqkchKy8867jOg+vERmZw8I4yivNjlgy0vuxzg5JeK24dF2Bmekd3FWGAAPh4isPOOeOGlOrTINQ38uCLtHYjBo=
   app: portfolio-website
   on:
     repo: kcheco/portfolio-website
