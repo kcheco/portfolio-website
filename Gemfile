@@ -47,6 +47,9 @@ gem 'devise', '~> 4.5'
 # Font Awesome for some cool vector icons
 gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
 
+# Use mailgun to work with ActionMailer
+gem 'mailgun-ruby', '~> 1.1', '>= 1.1.11'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -54,6 +57,7 @@ group :development, :test do
   gem 'capybara', '~> 3.12'
   gem 'selenium-webdriver', '~> 3.141'
   gem 'chromedriver-helper', '~> 2.1'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.1'
 end
 
 group :development do
