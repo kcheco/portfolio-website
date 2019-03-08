@@ -269,7 +269,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap (~> 4.2, >= 4.2.1)
+  bootstrap (~> 4.3, >= 4.3.1)
   byebug
   capybara (~> 3.12)
   chromedriver-helper (~> 2.1)
