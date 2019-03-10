@@ -6,6 +6,7 @@ module Admin
     # calls view to display list of projects
     def index
       @projects = Project.all
+      render template: "projects/index"
     end
 
     # calls view that allows user to add a new projects to list

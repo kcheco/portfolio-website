@@ -42,22 +42,7 @@
 
   <% @projects.first(3).each do |project| %>
 
-    <div class="col-md-4 pr-md-4 pl-md-0 list-item project">
-      <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-        <%= link_to image_tag(project.image.source, alt: "#{project.name}", title: "#{project.name}"), project.link, target: '_blank' %>
-      </div>
-      <% if user_signed_in? %>
-        <div class="links">
-          <div class="row px-md-3">
-            <p class="text-muted mb-md-2"><%= project.name %></p>
-          </div>  
-          <div class="row px-md-3">
-            <%= link_to "Make Changes", edit_admin_project_path(project), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
-            <%= link_to "Remove", admin_project_path(project), method: :delete, data: { confirm: 'Are you sure you no longer want to share this project?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render partial: 'projects/project', locals: { project: project } %>
 
   <% end %>
 
