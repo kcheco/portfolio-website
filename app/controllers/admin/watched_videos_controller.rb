@@ -7,6 +7,7 @@ module Admin
     # videos that have been recorded
     def index
       @watched_videos = WatchedVideo.all
+      render template: 'watched_videos/index'
     end
 
     # calls view to be rendered for user to add a youtube 
