@@ -1,0 +1,20 @@
+<% if book %>
+  <div class="col-md-4 pr-md-4 list-item book">
+    <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
+      <%= link_to image_tag(book.image.source, alt: "#{book.title}", title: "#{book.title}"), book.link, target: '_blank' %>
+    </div>
+    <div class="links">
+      <% unless current_page?(controller: 'pages', action: 'home') %>
+        <div class="row px-md-3">
+          <p class="text-muted mb-md-2"><%= book.title %></p>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class="row px-md-3">
+          <%= link_to "Make Changes", edit_admin_book_path(book), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
+          <%= link_to "Remove", admin_book_path(book), method: :delete, data: { confirm: 'I hope you don\'t get rid of books like the way you handle this books list. Are you sure you want to remove this books?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

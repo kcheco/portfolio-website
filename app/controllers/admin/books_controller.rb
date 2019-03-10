@@ -7,6 +7,7 @@ module Admin
     # that have been recorded as read
     def index
       @books = Book.all
+      render template: "books/index"
     end
 
     # calls view to be rendered in order for user to add
