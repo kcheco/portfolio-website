@@ -4,40 +4,15 @@
 
   <% if user_signed_in? %>
   
-    <%= link_to "Add New Video", new_admin_watched_video_path, class: 'btn btn-outline-dark my-md-3' %>
+    <%= link_to icon("fas", "plus-circle", "Add New Video"), new_admin_watched_video_path, class: 'btn btn-dark my-md-3' %>
 
   <% end %>
 
-  <% @watched_videos.in_groups_of(3).each do |group| %>
+  <% @watched_videos.in_groups_of(3).each do |videos_for_row| %>
 
     <div class="row">
 
-      <% group.each do |video| %>
-
-        <% if video %>
-
-          <div class="col-md-4 py-md-4 list-item watched_video">
-            <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-              <%= image_tag video.image.source, alt: "#{video.title}" %>
-            </div>
-            <div class="links">
-              <div class="row px-md-3">
-                <p class="text-muted mb-md-2"><%= video.title %></p>
-              </div>
-              <% if user_signed_in? %>
-              
-                <div class="row px-md-3">
-                  <%= link_to "Make Changes", edit_admin_watched_video_path(video), class: 'btn btn-sm btn-outline-secondary mr-md-1' %>
-                  <%= link_to "Remove", admin_watched_video_path(video), method: :delete, data: { confirm: 'Are you sure you want to remove this video from your list?' }, class: 'btn btn-sm btn-outline-danger mx-md-1' %>
-                </div>
-
-              <% end %>
-            </div>
-          </div>
-
-        <% end %>
-
-      <% end %>
+      <%= render partial: 'watched_videos/watched_video', collection: videos_for_row, as: :video %>
 
     </div>
 
