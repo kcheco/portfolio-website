@@ -74,8 +74,8 @@ feature "View home page" do
   end
 
   def then_i_should_see_the_heading_of_each_section
-    expect(page).to have_content("Kelvin Checo")
-    expect(page).to have_content("About me")
+    expect(page).to have_content("I'm a fullstack engineer")
+    expect(page).to have_content("How I started programming")
     expect(page).to have_content("Projects")
     expect(page).to have_content("Books I've Read")
     expect(page).to have_content("Videos I've recently watched")
