@@ -3,8 +3,13 @@
 @import "font-awesome";
 
 body, html {
+  font-family: 'Roboto', sans-serif;
   padding-bottom: 60px;
   height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
 }
 
 .footer-nav .fa, 

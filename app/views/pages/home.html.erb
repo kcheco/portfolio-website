@@ -1,134 +1,169 @@
 <!-- begin .profile -->
-<div class="profile d-md-flex w-100 my-md-3 pl-md-3">
+<div class="profile w-100 py-md-5">
 
-  <div class="w-25 mr-md-3">
-    <img class="img-fluid shadow-sm rounded-corners" src="<%= image_path('profile-image.png') %>">
-  </div>
+  <!-- begin .container -->
+  <div class="container d-md-flex">
 
-  <div class="w-75 mr-md-3 px-5 px-md-5">
-    <h1 class="display-2">Kelvin Checo</h1>
-    <h1 class="display-4 text-muted">A fullstack engineer</h1>
-    <p class="lead text-muted">New York, NY</p>
-    <div class="cta my-md-3">
-      <%= link_to "Contact Me", new_email_message_path, class: 'bg-primary btn-lg btn shadow text-white px-md-4 py-md-2' %>
+    <div class="greetings">
+      <h3>Hello!</h3>
     </div>
+    <div class="w-100 text-right px-md-5 intro">
+      <h1 class="mb-md-5">I'm a full stack engineer based in New York City.</h1>
+      <div class="cta mt-md-3 mb-md-5">
+        <a class="bg-primary btn-lg btn shadow text-white px-md-4 py-md-2" href="/contact_me">Contact Me</a>
+      </div>
+    </div>
+    
+    <div class="col-md-3 image_container">
+      <%= image_tag 'profile-image.png', class: 'shadow-sm' %>
+    </div>
+    <div class="col-md-4 image_backdrop"></div>
+  
   </div>
+  <!--/ end .container -->
 
 </div>
 <!--/ end .profile -->
 
-<div class="w-100 border-bottom"></div>
-
 <!-- begin .about -->
 <div class="about w-100 my-md-3 py-md-3">
 
-  <div class="w-100">
-    <h3 class="lead text-muted">About me</h3>
-    <p class="lead">
-      Throughout years of utilizing the most popular medium and always being connected with the art industry and latest design trends, I have found excitement in Web Design & Development. I started to learn front end development at the time when social media was at its infancy and people were able to modify their profile by inserting chunks of CSS into a comment field while editing their profile. While my strengths are mostly in back-end development, design - specifically UI/UX design - piques my interest. Throughout the years I have designed & developed static websites, custom CMS's, e-commerce websites, utilized WordPress, and developed APIs using back end technologies like Ruby on Rails & PHP. Some of the soft skills that come natural to me and has helped me in creating solutions for my clients and colleagues are being an active listener, being attentive to detail, and I am really good problem-solver.
-    </p>
+  <!-- begin .container -->
+  <div class="container pb-md-5">
+
+    <div class="col-md-4">
+      <h2 class="mb-md-5">How I started programming</h3>
+    </div>
+    <div class="col-md-8">
+      <p class="lead mb-md-4">
+        I started to learn front end development at the time when social media was at its infancy and people were able to modify their profile by inserting chunks of CSS into a comment field while editing their profile. I remember being captivated by the complete design overhaul of someone's profile that I began to read the source code (ctrl - u). Shortly after, I was customizing my friend's profiles.
+      </p>
+      <p class="lead mb-md-4">
+        My first big project was developing a store-front website in PHP with a fully custom content management system and continued working with people who were starting up their businesses who sought out to make their presence on the web. While my strengths are mostly in back-end development, design - specifically UI/UX design - piques my interest.
+      </p>
+      <p class="lead">
+        I have designed and developed static websites, custom CMS's, e-commerce websites, utilized WordPress, and developed APIs using back end technologies like Ruby on Rails and PHP. Some of the soft skills that come natural to me and has helped me in creating solutions for the people I work with are being an active listener, being attentive to detail, and I am really good problem-solver.
+      </p>
+    </div>
+
   </div>
+  <!--/ end .container -->
 
 </div>
 <!--/ end .about -->
 
-<div class="w-100 border-bottom"></div>
-
 <!-- begin .projects -->
 <div class="projects w-100 my-md-3 py-md-3">
-  <h3 class="lead text-muted">Projects</h3>
 
-  <div class="d-md-flex w-100 py-md-3">
+  <!-- begin .container -->
+  <div class="container pb-md-5">
 
-  <% @projects.first(3).each do |project| %>
+    <h3 class="text-center">Projects</h3>
+    <div class="d-md-flex w-100 py-md-3">
 
-    <%= render partial: 'projects/project', locals: { project: project } %>
+    <% @projects.first(3).each do |project| %>
 
-  <% end %>
+      <%= render partial: 'projects/project', locals: { project: project } %>
 
-  </div>
+    <% end %>
 
-  <% if @projects.count > 3 %>
-
-    <div class="w-100 text-right">
-      <%= link_to 'See more >> ', projects_path %>
     </div>
 
-  <% end %>
+    <% if @projects.count > 3 %>
+
+      <div class="w-100 text-right">
+        <%= link_to 'See more >> ', projects_path %>
+      </div>
+
+    <% end %>
+
+  </div>
+  <!--/ end .container -->
 
 </div>
 <!--/ end .projects -->
 
-<div class="w-100 border-bottom"></div>
-
 <!-- begin .books -->
 <div class="books w-100 my-md-3 py-md-3">
 
-  <h3 class="lead text-muted">Books I've Read</h3>
-  <div class="d-md-flex w-100 py-md-3">
+  <!-- begin .container -->
+  <div class="container pb-md-5">
 
-    <% @books.first(3).each do |book| %>
+    <h3 class="text-center">Books I've Read</h3>
+    <div class="d-md-flex w-100 py-md-3">
 
-      <%= render partial: 'books/book', locals: { book: book } %>
+      <% @books.first(3).each do |book| %>
+
+        <%= render partial: 'books/book', locals: { book: book } %>
+
+      <% end %>
+
+    </div>
+
+    <% if @books.count > 3 %>
+
+      <div class="w-100 text-right">
+        <%= link_to 'See more >> ', books_path %>
+      </div>
 
     <% end %>
 
   </div>
-
-  <% if @books.count > 3 %>
-
-    <div class="w-100 text-right">
-      <%= link_to 'See more >> ', books_path %>
-    </div>
-
-  <% end %>
+  <!--/ end .container -->
 
 </div>
 <!--/ end .books -->
 
-<div class="w-100 border-bottom"></div>
-
 <!-- begin .watched_videos -->
 <div class="watched_videos w-100 my-md-3 py-md-3">
 
-  <h3 class="lead text-muted">Videos I've recently watched</h3>
-  <div class="d-md-flex w-100 py-md-3">
+  <!-- begin .container -->
+  <div class="container pb-md-5">
 
-  <% @watched_videos.first(3).each do |video| %>
+    <h3 class="text-center">Videos I've recently watched</h3>
+    <div class="d-md-flex w-100 py-md-3">
 
-      <%= render partial: 'watched_videos/watched_video', locals: { video: video } %>
+    <% @watched_videos.first(3).each do |video| %>
+
+        <%= render partial: 'watched_videos/watched_video', locals: { video: video } %>
+
+      <% end %>
+
+    </div>
+
+    <% if @watched_videos.count > 3 %>
+
+      <div class="w-100 text-right">
+        <%= link_to 'See more >> ', watched_videos_path %>
+      </div>
 
     <% end %>
 
   </div>
-
-  <% if @watched_videos.count > 3 %>
-
-    <div class="w-100 text-right">
-      <%= link_to 'See more >> ', watched_videos_path %>
-    </div>
-
-  <% end %>
+  <!--/ end .container -->
 
 </div>
 <!--/ end .watched_videos -->
 
-<div class="w-100 border-bottom"></div>
-
 <!-- begin .skills -->
-
 <div class="skills w-100 my-md-3 py-md-3">
 
-  <h3 class="lead text-muted">Skills</h3>
-  <div class="w-100">
-    
-    <% @skills.each do |skill| %>
-      <span class="skill-item mr-md-3">
-        <%= "#{skill.name_in_dash_case}" %>
-      </span>
-    <% end %>
+  <!-- begin .container -->
+  <div class="container pb-md-5">
+
+    <h3>Skills</h3>
+    <div class="w-100">
+      
+      <% @skills.each do |skill| %>
+        <span class="skill-item mr-md-3">
+          <%= "#{skill.name_in_dash_case}" %>
+        </span>
+      <% end %>
+
+    </div>
 
   </div>
+  <!--/ end .container -->
 
 </div>
 <!--/ end .skills -->
