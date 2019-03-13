@@ -13,7 +13,7 @@ h3 {
 .greetings {
     position: absolute;
     z-index: 1;
-    left: 38rem;
+    left: 6rem;
 }
 
 .greetings h3 {
@@ -26,7 +26,9 @@ h3 {
     position: absolute;
     top: 10rem;
     z-index: 1;
-    left: 14.5rem;
+    left: -4.5rem;
+    width: 50%;
+    max-width: 450px;
 }
 
 .image_container > img {
@@ -39,8 +41,10 @@ h3 {
     background-color: #cfebff;
     top: 1rem;
     height: 40rem;
-    left: 20rem;
+    left: -5rem;
     border-radius: 50% 80%;
+    width: 75%;
+    max-width: 678px;
 }
 
 .intro {
@@ -70,4 +74,37 @@ h3 {
 
 .skill-item {
     line-height: 1.75rem;
-  }
+}
+
+@media (min-width: 768px) {
+    .greetings {
+        left: 15rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .greetings {
+        left: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .greetings {
+        left: 15rem;
+    }
+
+    .image_container {
+        width: 25%;
+        min-width: 480px;
+        left: 36%;
+        margin-left: -480px;
+    }
+
+    .image_backdrop {
+        width: 33.33333%;
+        min-width: 640px;
+        top: 1rem;
+        left: 50%;
+        margin-left: -640px;
+    }
+}

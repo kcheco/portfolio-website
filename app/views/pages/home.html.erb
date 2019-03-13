@@ -4,20 +4,20 @@
   <!-- begin .container -->
   <div class="container d-md-flex">
 
-    <div class="greetings">
-      <h3>Hello!</h3>
-    </div>
     <div class="w-100 text-right px-md-5 intro">
+      <div class="greetings">
+        <h3>Hello!</h3>
+      </div>
       <h1 class="mb-md-5">I'm a fullstack engineer based in New York City.</h1>
       <div class="cta mt-md-3 mb-md-5">
         <a class="bg-primary btn-lg btn shadow text-white px-md-4 py-md-2" href="/contact_me">Contact Me</a>
       </div>
     </div>
     
-    <div class="col-md-3 image_container">
+    <div class="image_container d-none d-sm-none d-md-block">
       <%= image_tag 'profile-image.png', class: 'shadow-sm' %>
     </div>
-    <div class="col-md-4 image_backdrop"></div>
+    <div class="image_backdrop d-none d-md-block"></div>
   
   </div>
   <!--/ end .container -->
