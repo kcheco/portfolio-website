@@ -2,6 +2,7 @@ module Admin
   class ProjectsController < ApplicationController
     before_action :authenticate_user!, only: [ :index, :new, :edit, :destroy ]
     before_action :set_project, only: [ :edit, :update, :destroy ]
+    layout "admin"
 
     # calls view to display list of projects
     def index

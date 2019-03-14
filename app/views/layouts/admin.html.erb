@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin | Full Stack Engineer | NYC | Kelvin Checo</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  </head>
+
+  <body class="<%= current_page?(controller:'devise/sessions', action: 'new') ? 'text-center login-bg bg-light' : '' %>">
+
+    <%= render 'shared/header' %>
+
+    <!-- begin .container -->
+    <div class="container pb-md-5">
+
+      <% flash.each do |key, message| %>
+        <div class="text-center alert
+                    alert-<%= key == 'notice' ? 'light' : 'warning' %>" role="alert">
+            <%= message %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+    <!--/ end .container -->
+
+    <%= render 'shared/footer' unless current_page?(controller: 'devise/sessions', action: 'new') %>
+
+    <!-- load js files -->
+    <%= javascript_include_tag 'application' %>
+
+  </body>
+</html>

@@ -2,6 +2,7 @@ module Admin
   class SkillsController < ApplicationController
     before_action :authenticate_user!, only: [ :index, :sort, :new, :edit, :destroy ]
     before_action :set_skill, only: [ :edit, :update, :destroy ]
+    layout "admin"
 
     # calls index view and displays a list of skills
     def index
