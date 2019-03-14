@@ -4,14 +4,35 @@
   <header class="border-bottom">
     <nav class="navbar navbar-expand navbar-light bg-light">
       <a class="navbar-brand" href="#">Admin</a>
-      <ul class="navbar-nav flex-row mx-md-auto d-none d-md-flex">
-        <li class="nav-item"><%= link_to "Home", root_path, class: 'nav-link px-md-3' %></li>
-        <li class="nav-item"><%= link_to "Books", admin_books_path, class: 'nav-link px-md-3' %></li>
-        <li class="nav-item"><%= link_to "WatchedVideos", admin_watched_videos_path, class: 'nav-link px-md-3' %></li>
-        <li class="nav-item"><%= link_to "Projects", admin_projects_path, class: 'nav-link px-md-3' %></li>
-        <li class="nav-item"><%= link_to "Skills", admin_skills_path, class: 'nav-link px-md-3' %></li>
+      <ul class="navbar-nav flex-row mx-md-auto ml-auto d-md-flex">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: 'nav-link px-md-3' %>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <%= link_to "Books", admin_books_path, class: 'nav-link px-md-3' %>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <%= link_to "WatchedVideos", admin_watched_videos_path, class: 'nav-link px-md-3' %>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <%= link_to "Projects", admin_projects_path, class: 'nav-link px-md-3' %>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <%= link_to "Skills", admin_skills_path, class: 'nav-link px-md-3' %>
+        </li>
+        <li class="nav-item dropdown d-block d-md-none">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Create
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Books", admin_books_path, class: 'dropdown-item' %>
+            <%= link_to "WatchedVideos", admin_watched_videos_path, class: 'dropdown-item' %>
+            <%= link_to "Projects", admin_projects_path, class: 'dropdown-item' %>
+            <%= link_to "Skills", admin_skills_path, class: 'dropdown-item' %>
+          </div>
+        </li>
       </ul>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark ml-md-3' %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark ml-3' %>
     </nav>
   </header>
   <!--/ end header -->

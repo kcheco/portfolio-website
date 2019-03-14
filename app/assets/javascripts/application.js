@@ -15,6 +15,8 @@
 //= require jquery-ui/core
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/widgets/sortable
+//= require popper
+//= require bootstrap
 //= require html5sortable
 // require turbolinks
 //= require_tree .
@@ -32,5 +34,7 @@ $(document).ready(function () {
     changeYear: true,
     showButtonPanel: true
   });
+
+  $('.dropdown-toggle').dropdown();
 
 });
