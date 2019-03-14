@@ -1,9 +1,11 @@
-<div class="error-dialog py-md-5 col-md-8 mx-auto">
-  <div class="rounded-corners overflow-hidden mb-md-2" style="height: 15rem;position: relative;">
-    <img src="<%= image_path('500-internal-server-error.png') %>" style="position: absolute;top: -10%;z-index: -1; width: 100%;">
+<div class="container">
+  <div class="error-dialog py-5 col-md-8 mx-auto">
+    <div class="rounded-corners overflow-hidden mb-2" style="height: 15rem;position: relative;">
+      <img src="<%= image_path('500-internal-server-error.png') %>" style="position: absolute;top: -10%;z-index: -1; width: 100%;">
+    </div>
+    <h5 class="text-muted mb-0">500</h5>
+    <h1>Server Error.</h1>
+    <p class="mb-4">There seems to be an issue supplying your request. Try again or reach out to the site admin.</p>
+    <a href="/" class="btn btn-outline-dark">Go back</a>
   </div>
-  <h5 class="text-muted mb-md-0">500</h5>
-  <h1>Server Error.</h1>
-  <p class="mb-md-4">There seems to be an issue supplying your request. Try again or reach out to the site admin.</p>
-  <a href="/" class="btn btn-outline-dark">Go back</a>
 </div>
