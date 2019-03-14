@@ -1,5 +1,5 @@
-<div class="py-md-3">
-  <h1 class="mb-md-3">Add a new project</h1>
+<div class="py-3">
+  <h1 class="mb-3">Add a new project</h1>
 
   <%= form_for(@project.with_no_cover, url: admin_projects_path) do |f| %>
 
@@ -28,7 +28,7 @@
     <% end %>
 
     <div>
-      <%= f.submit "Add Project", data: { disable_with: "Adding Project..."}, class: 'btn btn-primary mr-md-2' %>
+      <%= f.submit "Add Project", data: { disable_with: "Adding Project..."}, class: 'btn btn-primary mr-2' %>
       <%= link_to "Back", admin_projects_path, class: 'btn btn-light'%>
     </div>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Full Stack Engineer | NYC | Kelvin Checo</title>
+    <title>Admin | Full Stack Engineer | NYC | Kelvin Checo</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,14 +12,20 @@
 
     <%= render 'shared/header' %>
 
-    <% flash.each do |key, message| %>
-      <div class="text-center alert
-                  alert-<%= key == 'notice' ? 'light' : 'warning' %>" role="alert">
-          <%= message %>
-      </div>
-    <% end %>
+    <!-- begin .container -->
+    <div class="container pb-5">
 
-    <%= yield %>
+      <% flash.each do |key, message| %>
+        <div class="text-center alert
+                    alert-<%= key == 'notice' ? 'light' : 'warning' %>" role="alert">
+            <%= message %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+    <!--/ end .container -->
 
     <%= render 'shared/footer' unless current_page?(controller: 'devise/sessions', action: 'new') %>
 

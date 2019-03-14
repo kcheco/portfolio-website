@@ -1,66 +1,68 @@
-<div class="row mt-md-5 mb-md-4">
-  <div class="col-md-8">
-    <h1>Have an idea? Have a thought?</h1>
+<div class="container pb-md-5">
+  <div class="row mt-md-5 mb-md-4">
+    <div class="col-md-8">
+      <h1>Have an idea? Have a thought?</h1>
 
-    <h3 class="text-muted">I'm open to be hired for a full-time position, freelance work, consulting, or contract based work. Let's work together, plan, and execute the idea so that we can talk about how far we got and where we will be going!</h3>
+      <h3 class="text-muted">I'm open to be hired for a full-time position, freelance work, consulting, or contract based work. Let's work together, plan, and execute the idea so that we can talk about how far we got and where we will be going!</h3>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-8">
-    <%= form_for @message, url: email_message_path do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= form_for @message, url: email_message_path do |f| %>
 
-    <%= display_form_errors_for @message %>
+      <%= display_form_errors_for @message %>
 
-      <div class="form-row">
-        <div class="form-group col">
-          <%= f.label :name, "Your name" %>
-          <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Enter your full name' %>
+        <div class="form-row">
+          <div class="form-group col">
+            <%= f.label :name, "Your name" %>
+            <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Enter your full name' %>
+          </div>
+          <div class="form-group col">
+            <%= f.label :company, "Company name" %><sup class="text-muted ml-md-1">(optional)</sup>
+            <%= f.text_field :company, class: 'form-control', placeholder: 'Enter the name of the company or organization' %>
+          </div>
         </div>
-        <div class="form-group col">
-          <%= f.label :company, "Company name" %><sup class="text-muted ml-md-1">(optional)</sup>
-          <%= f.text_field :company, class: 'form-control', placeholder: 'Enter the name of the company or organization' %>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <%= f.label :email, "Email" %>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Enter your email address' %>
+          </div>
+          <div class="form-group col">
+            <%= f.label :phone, "Contact number" %>
+            <%= f.phone_field :phone, class: 'form-control', placeholder: 'Enter your contact number' %>
+          </div>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group col">
-          <%= f.label :email, "Email" %>
-          <%= f.email_field :email, class: 'form-control', placeholder: 'Enter your email address' %>
+        <div class="form-group mb-md-4">
+          <p>Preferred contact method</p>
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :preferred_method, 'email', class: 'form-check-input', checked: true %>
+            <%= f.label :preferred_method, "via email", class: 'form-check-label' %>
+          </div>
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :preferred_method, 'phone', class: 'form-check-input' %>
+            <%= f.label :preferred_method, "via phone", class: 'form-check-label' %>
+          </div>
         </div>
-        <div class="form-group col">
-          <%= f.label :phone, "Contact number" %>
-          <%= f.phone_field :phone, class: 'form-control', placeholder: 'Enter your contact number' %>
+
+        <div class="form-group mb-md-4">
+          <%= f.label :reason, "Reason for contacting me" %>
+          <%= f.select :reason, EmailMessage::REASONS.map { |index, value| [value, index] }, {include_blank: false}, class: 'form-control custom-select' %>
         </div>
-      </div>
 
-      <div class="form-group mb-md-4">
-        <p>Preferred contact method</p>
-        <div class="form-check form-check-inline">
-          <%= f.radio_button :preferred_method, 'email', class: 'form-check-input', checked: true %>
-          <%= f.label :preferred_method, "via email", class: 'form-check-label' %>
+        <div class="form-group mb-md-4">
+          <%= f.label :brief_msg, "Additional information" %>
+          <%= f.text_area :brief_msg, class: 'form-control', placeholder: 'Provide any details here' %>
         </div>
-        <div class="form-check form-check-inline">
-          <%= f.radio_button :preferred_method, 'phone', class: 'form-check-input' %>
-          <%= f.label :preferred_method, "via phone", class: 'form-check-label' %>
+
+        <div class="form-group mb-md-5">
+          <button type="submit" class="btn btn-primary shadow px-md-4 mr-md-2"><%= icon('fas', 'share', 'Send') %></button>
+          <%= link_to "Return home", root_path, class: 'btn btn-light' %>
         </div>
-      </div>
 
-      <div class="form-group mb-md-4">
-        <%= f.label :reason, "Reason for contacting me" %>
-        <%= f.select :reason, EmailMessage::REASONS.map { |index, value| [value, index] }, {include_blank: false}, class: 'form-control custom-select' %>
-      </div>
-
-      <div class="form-group mb-md-4">
-        <%= f.label :brief_msg, "Additional information" %>
-        <%= f.text_area :brief_msg, class: 'form-control', placeholder: 'Provide any details here' %>
-      </div>
-
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary shadow px-md-4 mr-md-2"><%= icon('fas', 'share', 'Send') %></button>
-        <%= link_to "Return home", root_path, class: 'btn btn-light' %>
-      </div>
-
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

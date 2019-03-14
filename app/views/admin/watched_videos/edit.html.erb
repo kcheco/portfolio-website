@@ -1,5 +1,5 @@
-<div class="py-md-3">
-  <h1 class="mb-md-3">Edit Watched Video</h2>
+<div class="py-3">
+  <h1 class="mb-3">Edit Watched Video</h2>
 
   <%= form_for(@watched_video, url: admin_watched_video_path(id: @watched_video)) do |f| %>
 
@@ -26,12 +26,12 @@
           <%= image_form.label :source, "Cover" %>
           <%= image_form.text_field :source, class: 'form-control' %>
         <% end %>
-        <%= image_tag "#{@watched_video.image.source}", class: 'mt-md-3' %>
+        <%= image_tag "#{@watched_video.image.source}", class: 'mt-3' %>
       </div>
     <% end %>
 
     <div>
-      <%= f.submit "Apply Changes", data: { disable_with: "Applying changes..."}, class: 'btn btn-primary mr-md-2' %>
+      <%= f.submit "Apply Changes", data: { disable_with: "Applying changes..."}, class: 'btn btn-primary mr-2' %>
       <%= link_to "Back", admin_watched_videos_path, class: 'btn btn-light'%>
     </div>
 
