@@ -2,7 +2,7 @@
 
   <div class="col-md-4 py-md-4 list-item watched_video">
     <div class="rounded-corners overflow-hidden shadow-sm bg-light mb-md-3">
-      <%= image_tag video.image.source, alt: "#{video.title}" %>
+      <%= link_to image_tag(video.image.source, alt: "#{video.title}", title: "#{video.title}"), video.link, target: '_blank' %>
     </div>
     <div class="links">
       <div class="row px-3">
