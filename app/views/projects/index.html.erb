@@ -1,21 +1,23 @@
-<div class="w-100 my-3 py-3">
+<div class="container">
+  <div class="w-100 my-3 py-3">
 
-  <h3 class="my-3">List of Projects</h3>
+    <h3 class="my-3">List of Projects</h3>
 
-  <% if user_signed_in? %>
-  
-    <%= link_to icon("fas", "plus-circle", "Add New Project"), new_admin_project_path, class: 'btn btn-dark mb-5' %>
+    <% if user_signed_in? %>
+    
+      <%= link_to icon("fas", "plus-circle", "Add New Project"), new_admin_project_path, class: 'btn btn-dark mb-5' %>
 
-  <% end %>
+    <% end %>
 
-  <% @projects.in_groups_of(3).each do |projects_in_row| %>
+    <% @projects.in_groups_of(3).each do |projects_in_row| %>
 
-    <div class="row">
+      <div class="row">
 
-      <%= render partial: 'projects/project', collection: projects_in_row, as: :project%>
+        <%= render partial: 'projects/project', collection: projects_in_row, as: :project%>
 
-    </div>
+      </div>
 
-  <% end %>
+    <% end %>
 
+  </div>
 </div>

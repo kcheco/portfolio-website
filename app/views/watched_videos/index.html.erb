@@ -1,21 +1,23 @@
-<div class="w-100 my-3 py-3">
+<div class="container">
+  <div class="w-100 my-3 py-3">
 
-  <h3 class="my-3">List of Youtube Videos I've watched</h3>
+    <h3 class="my-3">List of Youtube Videos I've watched</h3>
 
-  <% if user_signed_in? %>
-  
-    <%= link_to icon("fas", "plus-circle", "Add New Video"), new_admin_watched_video_path, class: 'btn btn-dark mb-5' %>
+    <% if user_signed_in? %>
+    
+      <%= link_to icon("fas", "plus-circle", "Add New Video"), new_admin_watched_video_path, class: 'btn btn-dark mb-5' %>
 
-  <% end %>
+    <% end %>
 
-  <% @watched_videos.in_groups_of(3).each do |videos_for_row| %>
+    <% @watched_videos.in_groups_of(3).each do |videos_for_row| %>
 
-    <div class="row">
+      <div class="row">
 
-      <%= render partial: 'watched_videos/watched_video', collection: videos_for_row, as: :video %>
+        <%= render partial: 'watched_videos/watched_video', collection: videos_for_row, as: :video %>
 
-    </div>
+      </div>
 
-  <% end %>
+    <% end %>
 
+  </div>
 </div>
