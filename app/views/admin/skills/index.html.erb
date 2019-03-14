@@ -1,28 +1,26 @@
-<div class="w-100 my-md-3 py-md-3">
+<div class="w-100 my-3 py-3">
 
-  <h3 class="text-muted my-md-3">List of Skills</h3>
+  <h3 class="my-3">List of Skills</h3>
 
-  <%= link_to icon("fas", "plus-circle", "Add New Skill"), new_admin_skill_path, class: 'btn btn-dark my-md-3' %>
+  <%= link_to icon("fas", "plus-circle", "Add New Skill"), new_admin_skill_path, class: 'btn btn-dark mb-5' %>
 
   <% if @skills.count > 0 %>
 
-    <div class="row p-md-1 border-bottom">
-      <div class="col h6">
-        Name
-      </div>
+    <div class="row p-1 border-bottom">
+      <div class="col h6">Name</div>
     </div>
 
-    <div class="row sortable p-md-1">
+    <div class="row sortable p-1">
     
     <% @skills.each do |skill| %>
 
         <div class="col-md-12">
-          <div class="skill-item row p-md-1 border-bottom" data-skill-id="<%= skill.id %>">
-            <div class="col-md-9">
+          <div class="skill-item row p-1 border-bottom" data-skill-id="<%= skill.id %>">
+            <div class="col-9">
               <%= icon("fas", "sort", skill.name) %>
             </div>
-            <div class="col-md-3 text-right">
-              <%= link_to icon("fas", "pen"), edit_admin_skill_path(skill), class: 'btn btn-outline-secondary btn-sm mr-md-1' %>
+            <div class="col-3 text-right">
+              <%= link_to icon("fas", "pen"), edit_admin_skill_path(skill), class: 'btn btn-outline-secondary btn-sm mr-1' %>
               <%= link_to icon("fas", "trash-alt"), admin_skill_path(skill), method: :delete, 
                                                             data: { confirm: 'Are you sure you want to delete this skill?' }, 
                                                             class: 'btn btn-outline-danger btn-sm' %>
