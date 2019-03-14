@@ -1,16 +1,16 @@
 <!-- begin .profile -->
-<div class="profile w-100 py-md-5">
+<div class="profile w-100 py-5">
 
   <!-- begin .container -->
-  <div class="container d-md-flex">
+  <div class="container d-flex">
 
     <div class="w-100 text-right px-md-5 intro">
       <div class="greetings">
         <h3>Hello!</h3>
       </div>
-      <h1 class="mb-md-5">I'm a fullstack engineer based in New York City.</h1>
-      <div class="cta mt-md-3 mb-md-5">
-        <a class="bg-primary btn-lg btn shadow text-white px-md-4 py-md-2" href="/contact_me">Contact Me</a>
+      <h1 class="mb-5">I'm a fullstack engineer based in New York City.</h1>
+      <div class="cta mt-3 mb-5">
+        <a class="bg-primary btn-lg btn shadow text-white px-4 py-2" href="/contact_me">Contact Me</a>
       </div>
     </div>
     
@@ -26,19 +26,19 @@
 <!--/ end .profile -->
 
 <!-- begin .about -->
-<div class="about w-100 my-md-3 py-md-3">
+<div class="about w-100 my-md-3 py-5">
 
   <!-- begin .container -->
   <div class="container pb-md-5">
 
-    <div class="col-md-4">
-      <h2 class="mb-md-5">How I started programming</h3>
+    <div class="col-xl-4 col-md-8">
+      <h2 class="mb-5">How I started programming</h3>
     </div>
     <div class="col-md-8">
-      <p class="lead mb-md-4">
+      <p class="lead mb-4">
         I started to learn front end development at the time when social media was at its infancy and people were able to modify their profile by inserting chunks of CSS into a comment field while editing their profile. I remember being captivated by the complete design overhaul of someone's profile that I began to read the source code (ctrl - u). Shortly after, I was customizing my friend's profiles.
       </p>
-      <p class="lead mb-md-4">
+      <p class="lead mb-4">
         My first big project was developing a store-front website in PHP with a fully custom content management system and continued working with people who were starting up their businesses who sought out to make their presence on the web. While my strengths are mostly in back-end development, design - specifically UI/UX design - piques my interest.
       </p>
       <p class="lead">
@@ -53,12 +53,12 @@
 <!--/ end .about -->
 
 <!-- begin .projects -->
-<div class="projects w-100 my-md-3 py-md-3">
+<div class="projects w-100 py-md-3 py-5">
 
   <!-- begin .container -->
   <div class="container pb-md-5">
 
-    <h3 class="text-center">Projects</h3>
+    <h3 class="text-center mb-5 mb-md-3">Projects</h3>
     <div class="d-md-flex w-100 py-md-3">
 
     <% @projects.first(3).each do |project| %>
@@ -84,12 +84,12 @@
 <!--/ end .projects -->
 
 <!-- begin .books -->
-<div class="books w-100 my-md-3 py-md-3">
+<div class="books w-100 py-md-3 py-5">
 
   <!-- begin .container -->
   <div class="container pb-md-5">
 
-    <h3 class="text-center">Books I've Read</h3>
+    <h3 class="text-center mb-5 mb-md-3">Books I've Read</h3>
     <div class="d-md-flex w-100 py-md-3">
 
       <% @books.first(3).each do |book| %>
@@ -115,12 +115,12 @@
 <!--/ end .books -->
 
 <!-- begin .watched_videos -->
-<div class="watched_videos w-100 my-md-3 py-md-3">
+<div class="watched_videos w-100 py-md-3 py-5">
 
   <!-- begin .container -->
   <div class="container pb-md-5">
 
-    <h3 class="text-center">Videos I've recently watched</h3>
+    <h3 class="text-center mb-5 mb-md-3">Videos I've recently watched</h3>
     <div class="d-md-flex w-100 py-md-3">
 
     <% @watched_videos.first(3).each do |video| %>
@@ -146,16 +146,16 @@
 <!--/ end .watched_videos -->
 
 <!-- begin .skills -->
-<div class="skills w-100 my-md-3 py-md-3">
+<div class="skills w-100 pt-md-3 pt-5 pb-5">
 
   <!-- begin .container -->
-  <div class="container pb-md-5">
+  <div class="container pb-5">
 
-    <h3>Skills</h3>
+    <h3 class="mb-5 mb-md-3">Skills</h3>
     <div class="w-100">
       
       <% @skills.each do |skill| %>
-        <span class="skill-item mr-md-3">
+        <span class="skill-item mr-3">
           <%= "#{skill.name_in_dash_case}" %>
         </span>
       <% end %>
