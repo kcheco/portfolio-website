@@ -69,3 +69,25 @@ h1, h2, h3, h4, h5, h6 {
 .form-group img {
   max-width: 100%;
 }
+
+.error-404 .banner,
+.error-500 .banner {
+  position: relative;
+  height: 15rem;
+}
+.error-404 img,
+.error-500 img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .error-404 img {
+    top: -30%;
+  }
+  .error-500 img {
+    top: -10%;
+  } 
+}
