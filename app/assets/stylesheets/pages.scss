@@ -8,12 +8,7 @@ h3 {
 .profile {
     /* background-color: #dcf5ff; */
     position: relative;
-}
-
-.greetings {
-    position: absolute;
-    z-index: 1;
-    left: 5rem;
+    height: 100vh;
 }
 
 .greetings h3 {
@@ -77,30 +72,40 @@ h3 {
 }
 
 @media (min-width: 447px) {
+    .profile {
+        height: auto;
+    }
+
     .intro h1 {
-        font-size: 5rem;
+        font-size: 4.75rem;
     }
 }
 
 @media (min-width: 768px) {
     .greetings {
-        left: 15rem;
+        position: absolute;
+        z-index: 1;
+        left: -5.5rem;
     }
 
     .intro h1 {
-        font-size: 6.25rem;
+        font-size: 5.5rem;
     }
 }
 
 @media (min-width: 992px) {
     .greetings {
-        left: 4rem;
+        left: 2rem;
+    }
+
+    .intro h1 {
+        font-size: 6.75rem;
     }
 }
 
 @media (min-width: 1200px) {
     .greetings {
-        left: 15rem;
+        left: 13rem;
     }
 
     .image_container {
