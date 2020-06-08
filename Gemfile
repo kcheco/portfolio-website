@@ -42,7 +42,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 # User managment, authentication, and authorization
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7'
 
 # Font Awesome for some cool vector icons
 gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
