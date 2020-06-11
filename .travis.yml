@@ -1,11 +1,11 @@
 language: ruby
 cache: bundler
 rvm: 2.4.1
-dist: xenial
 services: postgresql
 addons:
   chrome: stable
 before_script:
+- gem install bundler:1.16.3
 - bundle exec rake db:create
 script:
 - bin/rake db:migrate RAILS_ENV=test
