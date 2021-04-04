@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: ./
+  - destination: /var/www/checo-portfolio
+hooks:
+  BeforeInstall:
+    - location: scripts/install-docker
+    - location: scripts/rootless-docker
+  AfterInstall:
+    - location: scripts/build-app-image
+  ApplicationStart:
