@@ -5,6 +5,7 @@ files:
   - destination: /home/ubuntu/code/
 hooks:
   BeforeInstall:
+    - location: scripts/build-app-image
     # - location: scripts/install-docker
   AfterInstall:
     # - location: scripts/build-app-image
