@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-  - destination: /home/ubuntu/code/
+    destination: /home/ubuntu/code/
 hooks:
   BeforeInstall:
     - location: scripts/build-app-image
