@@ -5,14 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.4.1'
+ruby '2.5.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
-gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,9 +48,16 @@ gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
 # Use mailgun to work with ActionMailer
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.11'
 
+group :production do
+  gem 'passenger', '~> 6.0', '>= 6.0.8', require: 'phusion_passenger/rack_handler'
+  gem 'i18n', '~> 1.8', '>= 1.8.9'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Use Puma as the app server
+  gem 'puma', '~> 3.12'
   gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
   gem 'capybara', '~> 3.12'
   gem 'selenium-webdriver', '~> 3.141'

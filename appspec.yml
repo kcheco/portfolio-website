@@ -5,5 +5,5 @@ hooks:
     - location: scripts/install-docker
     - location: scripts/rootless-docker
   AfterInstall:
-    - location: scripts/build-app-image
+    # - location: scripts/build-app-image
   ApplicationStart:
