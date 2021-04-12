@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./docker/app/Dockerfile
+      dockerfile: ./docker/app/production/Dockerfile
     volumes:
       - ./:/home/app/checo-portfolio/
     ports:
