@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /home/ubuntu/code
-sudo chown -R ubuntu:ubuntu /home/ubuntu/code/*
+sudo chown -R ubuntu:ubuntu /home/ubuntu/code /home/ubuntu/code/*
 docker-compose up --build -d
