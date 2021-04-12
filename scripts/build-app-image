@@ -1,5 +1,3 @@
 !#/bin/bash
-echo $DEPLOYMENT_GROUP_ID
-echo $DEPLOYMENT_ID
-echo $DEPLOYMENT_GROUP_NAME
-# docker-compose up --build -d
+cd /home/ubuntu/code
+docker-compose up --build -d
