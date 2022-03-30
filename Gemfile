@@ -57,7 +57,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use Puma as the app server
-  gem 'puma', '~> 3.12'
+  gem 'puma', '~> 4.3'
   gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
   gem 'capybara', '~> 3.12'
   gem 'selenium-webdriver', '~> 3.141'
